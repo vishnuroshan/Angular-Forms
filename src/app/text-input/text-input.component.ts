@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class TextInputComponent{
   textControl = new FormControl('');
   @Input() type:string = 'text';
+  @Input() label:string = "Username";
+  @Input() placeholder:string = "Enter a username";
 
   inputForm = new FormGroup({
     text: this.textControl,
