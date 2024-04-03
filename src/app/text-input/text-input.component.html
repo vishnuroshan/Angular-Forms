@@ -1,0 +1,5 @@
+<p>text-input works</p>
+<form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+    <input type={{type}} [formControl]="textControl" placeholder="Text Input">
+    <button type="submit">Submit</button>
+</form>
