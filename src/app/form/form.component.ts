@@ -8,10 +8,16 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./form.component.scss'],
 })
 
-export class FormComponent{
+export class FormComponent implements OnInit{
+  public selectOptions :Array<{}> = [];
 
- 
-  
+  ngOnInit(){
+    this.selectOptions = [
+      {label:'option1', value:'mock-option1'},
+      {label:'option2', value:'mock-option2'},
+      {label:'option3', value:'mock-option3'}
+    ]
+  }
   
 
 }
