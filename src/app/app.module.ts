@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { TextInputComponent } from './text-input/text-input.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { TextInputComponent } from './text-input/text-input.component';
     BrowserModule,
     AppRoutingModule,
     TextInputComponent,
+    DropdownComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
