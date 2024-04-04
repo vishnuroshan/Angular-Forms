@@ -1,10 +1,6 @@
-<form [formGroup]="formData" (ngSubmit)="onSubmit(formData.value)">
-    <app-text-input type="text" label="Username" placeholder="Enter a username" [control]="$any(formData.get('userName'))"> </app-text-input>
-    <app-text-input type="email" label="Email" placeholder="Enter your email" [control]="$any(formData.get('email'))"> </app-text-input>
-    <app-text-input type="password" label="Password" placeholder="Enter the password" [control]="$any(formData.get('password'))"> </app-text-input>
-    <app-text-input type="number" label="Number" placeholder="Enter a number" [control]="$any(formData.get('number'))"> </app-text-input>
-    <app-dropdown [label]="'Select an option'" [options]="selectOptions" [control]="$any(formData.get('dropdown'))"></app-dropdown>
-    <button type="submit">Submit</button>
+<form (ngSubmit)="submitForm()">
+  <app-text-input type= "text" label="username" [(ngModel)]="textInputValue" [ngModelOptions]="{standalone: true}"></app-text-input>{{ textInputValue }}
+  <app-text-input type= "password" label="password" [(ngModel)]="passwordInputValue" name="passwordInputValue" [ngModelOptions]="{standalone: true}"></app-text-input>{{ passwordInputValue }}
+  <app-text-input type= "email" label="email" [(ngModel)]="emailInputValue" name="emailInputValue" [ngModelOptions]="{standalone: true}"></app-text-input>{{ emailInputValue }}
+  <button type="submit">Submit</button>
 </form>
-
-
