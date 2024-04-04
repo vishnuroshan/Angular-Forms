@@ -9,12 +9,13 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class FormComponent implements OnInit{
-  public selectOptions :Array<{}> = [];
+  public selectOptions: { label: string; value: string }[] = [];
   formData: FormGroup = new FormGroup({});
   textControl = new FormControl('');
   passwordControl = new FormControl('');
   emailControl = new FormControl('');
-  numberControl = new FormControl(123);
+  numberControl = new FormControl();
+  dropdownControl = new FormControl('');
 
   ngOnInit(){
     this.selectOptions = [
@@ -25,18 +26,14 @@ export class FormComponent implements OnInit{
     this.createForm();
   }
 
-  // options: Option[] = [
-  //   { label: 'Option 1', value: 'radio-option1' },
-  //   { label: 'Option 2', value: 'radio-option2' },
-  // ];
-
   createForm(){
     this.formData = new FormGroup({
       userName: this.textControl,
       email: this.emailControl,
       password: this.passwordControl,
-      number: this.numberControl
-    })
+      number: this.numberControl,
+      dropdown: new FormControl(this.selectOptions[0].value)
+    });
   }
 
   onSubmit(form: any){

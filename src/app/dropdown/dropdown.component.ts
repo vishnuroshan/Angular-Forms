@@ -10,15 +10,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
   styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent {
-  dropDownControl = new FormControl('');
-  @Input() options:Array<any> = [];
-  @Input() label:string = "Username";
-
-  inputForm = new FormGroup({
-    text: this.dropDownControl,
-  });
-
-  onSubmit() {
-    console.log(this.inputForm.value);
-  }
+  @Input() control: FormControl = new FormControl();
+  @Input() label: string = '';
+  @Input() options: { label: string; value: string }[] = [];
 }

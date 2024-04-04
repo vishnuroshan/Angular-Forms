@@ -3,7 +3,7 @@
     <app-text-input type="email" label="Email" placeholder="Enter your email" [control]="$any(formData.get('email'))"> </app-text-input>
     <app-text-input type="password" label="Password" placeholder="Enter the password" [control]="$any(formData.get('password'))"> </app-text-input>
     <app-text-input type="number" label="Number" placeholder="Enter a number" [control]="$any(formData.get('number'))"> </app-text-input>
-    <!-- <app-dropdown [options]="selectOptions" label="Select an option"></app-dropdown> -->
+    <app-dropdown [label]="'Select an option'" [options]="selectOptions" [control]="$any(formData.get('dropdown'))"></app-dropdown>
     <button type="submit">Submit</button>
 </form>
 
