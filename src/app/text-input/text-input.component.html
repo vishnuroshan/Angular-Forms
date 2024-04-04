@@ -1,6 +1,9 @@
-<div class="formgroup">
-    <label for={{label}}>{{label}}: </label>
-    <div>
-        <input [formControl]="control" type={{type}} placeholder={{placeholder}} />
-    </div>
+<div>
+    <label for="userName">UserName</label>
+    <input type="text" 
+           id="userName" 
+           [(ngModel)] = "input" 
+           (ngModelChange)="onChange($event)"
+           (blur)="onTouched()"
+    />
 </div>

@@ -1,6 +1,6 @@
 import { Component,Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, FormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormControl, FormGroup, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -8,12 +8,29 @@ import { ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule,ReactiveFormsModule,FormsModule],
   templateUrl: './text-input.component.html',
-  styleUrls: ['./text-input.component.scss']
+  styleUrls: ['./text-input.component.scss'],
+  providers:  [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: TextInputComponent,
+      multi: true
+    }
+  ]
 })
-export class TextInputComponent{
-  @Input() control: FormControl = new FormControl('')
-  @Input() type: string = 'text';
-  @Input() label: string = "Username";
-  @Input() placeholder: string = "Enter a username";
-  
+export class TextInputComponent implements ControlValueAccessor{
+
+  input!: string
+
+  onChange: any = () => { };
+  onTouched: any = () => { };
+
+  writeValue(input: any){
+    this.input = input;
+  }
+  registerOnChange(fn: any){
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: any){
+    this.onTouched = fn;
+  }
 }

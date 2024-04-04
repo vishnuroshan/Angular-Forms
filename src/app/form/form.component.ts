@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TextInputComponent } from '../text-input/text-input.component';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -9,38 +9,25 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class FormComponent implements OnInit{
-  public selectOptions: { label: string; value: string }[] = [];
-  formData: FormGroup = new FormGroup({});
-  textControl = new FormControl('');
-  passwordControl = new FormControl('');
-  emailControl = new FormControl('');
-  numberControl = new FormControl();
-  dropdownControl = new FormControl('');
-  radioControl = new FormControl('');
-  checkboxControl = new FormControl(false);
+  form!: FormGroup
 
-  ngOnInit(){
-    this.selectOptions = [
-      {label:'option1', value:'mock-option1'},
-      {label:'option2', value:'mock-option2'},
-      {label:'option3', value:'mock-option3'}
-    ]
+  constructor(private fb: NonNullableFormBuilder) { }
+
+  ngOnInit(): void {
     this.createForm();
   }
-
+  
   createForm(){
-    this.formData = new FormGroup({
-      userName: this.textControl,
-      email: this.emailControl,
-      password: this.passwordControl,
-      number: this.numberControl,
-      dropdown: new FormControl(this.selectOptions[0].value),
-      radio: new FormControl(this.selectOptions[0].value),
-      checkbox: this.checkboxControl,
-    });
+    this.form = this.fb.group({
+      userName: new FormControl('',[Validators.required]),
+    })
   }
 
-  onSubmit(form: any){
-    console.log(form);
+  get userName() {
+    return this.form.controls['userName'];
+  }
+
+  onSubmit( formData: any) {
+    console.log(formData);
   }
 }
