@@ -20,6 +20,8 @@ export class FormComponent implements OnInit{
     this.form = this.fb.group({
       userName: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
+      email: new FormControl('',[Validators.required]),
+      number: new FormControl('',[Validators.required])
     })
   }
 
@@ -27,10 +29,18 @@ export class FormComponent implements OnInit{
     return this.form.controls['userName'];
   }
 
-    get password() {
+  get password() {
     return this.form.controls['password'];
   }
 
+  get email() {
+    return this.form.controls['email'];
+  }
+
+  get number() {
+    return this.form.controls['number'];
+  }
+  
   onSubmit(formData: any) {
     console.log(formData);
     this.submitted = true;

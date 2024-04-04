@@ -6,13 +6,28 @@
                 PLEASE ENTER YOUR USER NAME
             </p>
         </div>
-        <app-text-input type="password" label="password" formControlName="password"></app-text-input>
 
+        <app-text-input type="password" label="password" formControlName="password"></app-text-input>
         <div *ngIf="password.invalid && (password.dirty || password.touched)">
             <p *ngIf="password.hasError('required')" class="error">
                 PLEASE ENTER YOUR USER PASSWORD
             </p>
         </div>
+        
+        <app-text-input type="email" label="email" formControlName="email"></app-text-input>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+            <p *ngIf="email.hasError('required')" class="error">
+                PLEASE ENTER YOUR EMAIL
+            </p>
+        </div>
+        
+        <app-text-input type="number" label="number" formControlName="number"></app-text-input>
+        <div *ngIf="number.invalid && (number.dirty || number.touched)">
+            <p *ngIf="number.hasError('required')" class="error">
+                PLEASE ENTER YOUR NUMBER
+            </p>
+        </div>
+
         <div>
             <button [disabled]="!form.valid">Submit</button>
         </div>
@@ -22,5 +37,7 @@
         <h2>Submitted Values:</h2>
         <p>UserName: {{ form.value.userName }}</p>
         <p>Password: {{ form.value.password }}</p>
+        <p>Email: {{ form.value.email }}</p>
+        <p>Number: {{ form.value.number }}</p>
     </div>
 </div>
