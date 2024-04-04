@@ -34,7 +34,7 @@ export class FormComponent implements OnInit{
 
   createForm(){
     this.form = this.fb.group({
-      userName: new FormControl('', [Validators.required]),
+      userName: new FormControl('default name', [Validators.required]),
       password: new FormControl('', [Validators.required]),
       email: new FormControl('',[Validators.required]),
       number: new FormControl('',[Validators.required]),
