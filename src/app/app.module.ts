@@ -19,6 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     TextInputComponent,
     DropdownComponent,
+    RadioGroupInputComponent,
+    CheckboxInputComponent,
     FormsModule,
     ReactiveFormsModule
   ],
