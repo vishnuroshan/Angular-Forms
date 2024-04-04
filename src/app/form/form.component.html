@@ -4,6 +4,8 @@
     <app-text-input type="password" label="Password" placeholder="Enter the password" [control]="$any(formData.get('password'))"> </app-text-input>
     <app-text-input type="number" label="Number" placeholder="Enter a number" [control]="$any(formData.get('number'))"> </app-text-input>
     <app-dropdown [label]="'Select an option'" [options]="selectOptions" [control]="$any(formData.get('dropdown'))"></app-dropdown>
+    <app-radio [label]="'Select an option'" [options]="selectOptions" [control]="$any(formData.get('radio'))"></app-radio>
+    <app-checkbox [label]="'IsActive'" [options]="selectOptions" [control]="$any(formData.get('checkbox'))"></app-checkbox>
     <button type="submit">Submit</button>
 </form>
 

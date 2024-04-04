@@ -16,6 +16,8 @@ export class FormComponent implements OnInit{
   emailControl = new FormControl('');
   numberControl = new FormControl();
   dropdownControl = new FormControl('');
+  radioControl = new FormControl('');
+  checkboxControl = new FormControl(false);
 
   ngOnInit(){
     this.selectOptions = [
@@ -32,7 +34,9 @@ export class FormComponent implements OnInit{
       email: this.emailControl,
       password: this.passwordControl,
       number: this.numberControl,
-      dropdown: new FormControl(this.selectOptions[0].value)
+      dropdown: new FormControl(this.selectOptions[0].value),
+      radio: new FormControl(this.selectOptions[0].value),
+      checkbox: this.checkboxControl,
     });
   }
 
