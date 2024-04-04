@@ -32,6 +32,7 @@
 
 
         <app-radio label="Gender" [options]="radioOptions" formControlName="radioOption"></app-radio>
+        <app-checkbox label="Tech Stack" [options]="checkBoxOptions" formControlName="checkboxOption"></app-checkbox>
 
         <div>
             <button [disabled]="!form.valid">Submit</button>
@@ -46,4 +47,6 @@
         <p>Number: {{ form.value.number }}</p>
         <p>Dropdown: {{ form.value.dropdownOption }}</p>
         <p>Gender:{{ form.value.radioOption }}</p>
+        <p>Hobby:{{ form.value.checkboxOption }}</p>
+
     </div>

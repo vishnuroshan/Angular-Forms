@@ -6,8 +6,8 @@ import { FormComponent } from './form/form.component';
 import { TextInputComponent } from './text-input/text-input.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { RadioGroupInputComponent } from './radio/radio.component';
-import { CheckboxInputComponent } from './checkbox-input/checkbox-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TextInputComponent,
     DropdownComponent,
     RadioGroupInputComponent,
-    CheckboxInputComponent,
+    CheckboxComponent,
     FormsModule,
     ReactiveFormsModule
   ],

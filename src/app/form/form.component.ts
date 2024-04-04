@@ -22,6 +22,12 @@ export class FormComponent implements OnInit{
     { label: 'Female', value: 'female' },
   ];
 
+  checkBoxOptions = [
+    {label:'Angular Js', value:'angular'},
+    {label:'React Js', value:'react'},
+    {label:'vue Js', value:'vue'}
+  ]
+
   ngOnInit(): void {
     this.createForm();
   }
@@ -33,7 +39,8 @@ export class FormComponent implements OnInit{
       email: new FormControl('',[Validators.required]),
       number: new FormControl('',[Validators.required]),
       dropdownOption: new FormControl(null,[Validators.required]),
-      radioOption: new FormControl(null, [Validators.required])
+      radioOption: new FormControl(null, [Validators.required]),
+      checkboxOption: new FormControl(true)
     })
   }
 
