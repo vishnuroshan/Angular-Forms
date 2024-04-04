@@ -13,14 +13,14 @@
                 PLEASE ENTER YOUR USER PASSWORD
             </p>
         </div>
-        
+
         <app-text-input type="email" label="email" formControlName="email"></app-text-input>
         <div *ngIf="email.invalid && (email.dirty || email.touched)">
             <p *ngIf="email.hasError('required')" class="error">
                 PLEASE ENTER YOUR EMAIL
             </p>
         </div>
-        
+
         <app-text-input type="number" label="number" formControlName="number"></app-text-input>
         <div *ngIf="number.invalid && (number.dirty || number.touched)">
             <p *ngIf="number.hasError('required')" class="error">
@@ -30,6 +30,8 @@
 
         <app-dropdown label="Interests" [options]="dropdownOptions" formControlName="dropdownOption"></app-dropdown>
 
+
+        <app-radio label="Gender" [options]="radioOptions" formControlName="radioOption"></app-radio>
 
         <div>
             <button [disabled]="!form.valid">Submit</button>
@@ -43,5 +45,5 @@
         <p>Email: {{ form.value.email }}</p>
         <p>Number: {{ form.value.number }}</p>
         <p>Dropdown: {{ form.value.dropdownOption }}</p>
+        <p>Gender:{{ form.value.radioOption }}</p>
     </div>
-</div>

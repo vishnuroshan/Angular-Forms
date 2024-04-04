@@ -17,6 +17,11 @@ export class FormComponent implements OnInit{
     {label:'option3', value:'value3'}
   ]
 
+  radioOptions = [
+    { label: 'Male', value: 'male' },
+    { label: 'Female', value: 'female' },
+  ];
+
   ngOnInit(): void {
     this.createForm();
   }
@@ -27,7 +32,8 @@ export class FormComponent implements OnInit{
       password: new FormControl('', [Validators.required]),
       email: new FormControl('',[Validators.required]),
       number: new FormControl('',[Validators.required]),
-      dropdownOption: new FormControl(null,[Validators.required])
+      dropdownOption: new FormControl(null,[Validators.required]),
+      radioOption: new FormControl(null, [Validators.required])
     })
   }
 
@@ -46,7 +52,7 @@ export class FormComponent implements OnInit{
   get number() {
     return this.form.controls['number'];
   }
-  
+
   onSubmit(formData: any) {
     console.log(formData);
     this.submitted = true;

@@ -1,6 +1,7 @@
- <div>
-  <ng-container *ngFor="let option of options">
-      <input [id]="option.value" type="radio" [formControl]="control" [value]="option.value" />
-      <label [for]="option.value">{{ option.label }}</label>
-  </ng-container>
+<div>
+    <label>{{ label }}</label>
+    <div *ngFor="let option of options">
+        <input type="radio" [id]="option.value + '_id'" [value]="option.value" [checked]="checkedOption === option" (change)="checkedOption = option" />
+        <label [for]="option.value + '_id'">{{ option.label }}</label>
+    </div>
 </div>
