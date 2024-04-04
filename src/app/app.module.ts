@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { TextInputComponent } from './text-input/text-input.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { DropdownComponent } from './dropdown/dropdown.component';
     BrowserModule,
     AppRoutingModule,
     TextInputComponent,
-    DropdownComponent
+    DropdownComponent,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
