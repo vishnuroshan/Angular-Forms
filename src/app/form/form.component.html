@@ -1,6 +1,20 @@
-<form (ngSubmit)="submitForm()">
-  <app-text-input type= "text" label="username" [(ngModel)]="textInputValue" [ngModelOptions]="{standalone: true}"></app-text-input>{{ textInputValue }}
-  <app-text-input type= "password" label="password" [(ngModel)]="passwordInputValue" name="passwordInputValue" [ngModelOptions]="{standalone: true}"></app-text-input>{{ passwordInputValue }}
-  <app-text-input type= "email" label="email" [(ngModel)]="emailInputValue" name="emailInputValue" [ngModelOptions]="{standalone: true}"></app-text-input>{{ emailInputValue }}
-  <button type="submit">Submit</button>
-</form>
+<p>
+Input:
+</p>
+
+  <app-text-input type="text" label="Text" [(ngModel)]="text"  #validations="ngModel"></app-text-input>
+  <app-text-input type="email" label="Email" [(ngModel)]="email"  #validations="ngModel"></app-text-input>
+  <app-text-input type="password" label="Password" [(ngModel)]="password"  #validations="ngModel"></app-text-input>
+  <app-text-input type="number" label="Number" [(ngModel)]="number"  #validations="ngModel"></app-text-input>
+
+
+  text: {{text}}
+  email: {{email}}
+  password: {{password}}
+  password: {{number}}
+
+
+
+  <p>{{validations.control | json}}</p>
+
+

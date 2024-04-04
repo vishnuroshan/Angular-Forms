@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, forwardRef, inject, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
-import { debounceTime, noop, Subject, takeUntil, tap } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-text-input',
@@ -19,49 +17,35 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   ],
 })
 
-export class TextInputComponent implements ControlValueAccessor, OnInit {
+export class TextInputComponent implements ControlValueAccessor {
   @Input() type: string = 'text';
   @Input() label: string = "Username";
-  formControl: FormControl = new FormControl('');
-
-  private _destroy$ = new Subject<void>();
-
-  onChange: (value: any) => void = () => {};
-  onTouch: () => void = () => {};
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.formControl.valueChanges.pipe(
-      takeUntil(this._destroy$)
-    ).subscribe(value => {
-      this.onChange(value);
-      this.onTouch();
-    });
+  onChange: any = () => {}
+  onTouch: any = () => {}
+  val= ""
+
+  set value(val: any){
+    if( val !== undefined && this.val !== val){
+    this.val = val
+    this.onChange(val)
+    this.onTouch(val)
+    }
+
   }
 
-  ngOnDestroy(): void {
-    this._destroy$.next();
-    this._destroy$.complete();
+  writeValue(value: any){
+    this.value = value
   }
 
-  writeValue(value: any): void {
-    this.formControl.setValue(value, { emitEvent: false });
+  registerOnChange(fn: any){
+    this.onChange = fn
   }
 
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
+  registerOnTouched(fn: any){
+    this.onTouch = fn
   }
 
-  registerOnTouched(fn: any): void {
-    this.onTouch = fn;
-  }
-
-  setDisabledState(isDisabled: boolean): void {
-    isDisabled ? this.formControl.disable() : this.formControl.enable();
-  }
-
-  validate(): { [key: string]: any } | null {
-    return this.formControl.errors;
-  }
 }

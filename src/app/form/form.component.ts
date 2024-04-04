@@ -9,12 +9,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class FormComponent {
-  textInputValue: string = '';
-  passwordInputValue: string = ''
-  emailInputValue: string = ''
-  submitForm() {
-    console.log('Submitted Value:', this.textInputValue);
-    console.log('Submitted Value:', this.passwordInputValue);
-    console.log('Submitted Value:', this.emailInputValue);
-  }
+  text! : string;
+  email! : string;
+  password! : string;
+  number! : number;
+
+
+
 }
