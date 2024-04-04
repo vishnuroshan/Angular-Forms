@@ -11,16 +11,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./text-input.component.scss']
 })
 export class TextInputComponent{
-  textControl = new FormControl('');
-  @Input() type:string = 'text';
-  @Input() label:string = "Username";
-  @Input() placeholder:string = "Enter a username";
-
-  inputForm = new FormGroup({
-    text: this.textControl,
-  });
-
-  onSubmit() {
-    console.log(this.inputForm.value);
-  }
+  @Input() control: FormControl = new FormControl('')
+  @Input() type: string = 'text';
+  @Input() label: string = "Username";
+  @Input() placeholder: string = "Enter a username";
+  
 }
