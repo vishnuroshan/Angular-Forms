@@ -24,7 +24,12 @@ export class FormComponent implements OnInit{
     ]
     this.createForm();
   }
-  
+
+  // options: Option[] = [
+  //   { label: 'Option 1', value: 'radio-option1' },
+  //   { label: 'Option 2', value: 'radio-option2' },
+  // ];
+
   createForm(){
     this.formData = new FormGroup({
       userName: this.textControl,
