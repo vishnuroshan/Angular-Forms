@@ -1,0 +1,14 @@
+.radio-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  div label {
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,22 @@
+.checkbox-wrapper {
+  margin-bottom: 10px;
+
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .checkbox-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+  }
+}

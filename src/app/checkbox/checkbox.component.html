@@ -1,4 +1,4 @@
-<div>
+<div class="checkbox-wrapper">
   <label>{{ label }}</label>
   <div *ngFor="let option of options">
     <input type="checkbox" [id]="option.value + '_id'" [value]="option.value" [checked]="isChecked(option)" (change)="toggleSelection(option)" />

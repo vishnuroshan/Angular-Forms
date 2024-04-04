@@ -1,4 +1,4 @@
-<div>
+<div class="dropdown-container">
   <label>{{ label }}</label>
   <select [(ngModel)]="selectedOptions" (ngModelChange)="selectOptions($event)"  (blur)="onTouched()">
     <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
