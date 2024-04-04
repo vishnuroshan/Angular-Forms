@@ -1,8 +1,8 @@
 <div>
-    <label for="userName">UserName</label>
-    <input type="text" 
-           id="userName" 
-           [(ngModel)] = "input" 
+    <label [for]="label">{{label}}</label>
+    <input [type]="type"
+           [id]="label"
+           [(ngModel)]="input"
            (ngModelChange)="onChange($event)"
            (blur)="onTouched()"
     />

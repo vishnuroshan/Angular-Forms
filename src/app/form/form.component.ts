@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TextInputComponent } from '../text-input/text-input.component';
-import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -11,7 +10,7 @@ import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@ang
 export class FormComponent implements OnInit{
   form!: FormGroup
 
-  constructor(private fb: NonNullableFormBuilder) { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -19,12 +18,17 @@ export class FormComponent implements OnInit{
   
   createForm(){
     this.form = this.fb.group({
-      userName: new FormControl('',[Validators.required]),
+      userName: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
     })
   }
 
   get userName() {
     return this.form.controls['userName'];
+  }
+
+    get password() {
+    return this.form.controls['password'];
   }
 
   onSubmit( formData: any) {

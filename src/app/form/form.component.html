@@ -1,25 +1,20 @@
-<!-- <form [formGroup]="formData" (ngSubmit)="onSubmit(formData.value)">
-    <app-text-input type="text" label="Username" placeholder="Enter a username" [control]="$any(formData.get('userName'))"> </app-text-input>
-    <app-text-input type="email" label="Email" placeholder="Enter your email" [control]="$any(formData.get('email'))"> </app-text-input>
-    <app-text-input type="password" label="Password" placeholder="Enter the password" [control]="$any(formData.get('password'))"> </app-text-input>
-    <app-text-input type="number" label="Number" placeholder="Enter a number" [control]="$any(formData.get('number'))"> </app-text-input>
-    <app-dropdown [label]="'Select an option'" [options]="selectOptions" [control]="$any(formData.get('dropdown'))"></app-dropdown>
-    <app-radio [label]="'Select an option'" [options]="selectOptions" [control]="$any(formData.get('radio'))"></app-radio>
-    <app-checkbox [label]="'IsActive'" [options]="selectOptions" [control]="$any(formData.get('checkbox'))"></app-checkbox>
-    <button type="submit">Submit</button>
-</form> -->
 
 <div class = "wrapper">
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-        
-            <app-text-input formControlName="userName"></app-text-input>
+            <app-text-input type ="text" label="UserName" formControlName="userName"></app-text-input>
             <div *ngIf="userName.invalid && (userName.dirty || userName.touched)">
                 <p *ngIf="userName.hasError('required')" class="error">
                     PLEASE ENTER YOUR USER NAME
                 </p>
             </div>
+            <app-text-input type="password" label="password" formControlName="password"></app-text-input>
+
+            <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                <p *ngIf="password.hasError('required')" class="error">
+                    PLEASE ENTER YOUR USER PASSWORD
+                </p>
+            </div>
         <div>
-            
         </div>
 
         <div>

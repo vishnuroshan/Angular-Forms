@@ -18,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ]
 })
 export class TextInputComponent implements ControlValueAccessor{
-
+  @Input() label: string = '';
+  @Input() type: string = 'text';
   input!: string
 
   onChange: any = () => { };
