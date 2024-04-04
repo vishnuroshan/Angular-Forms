@@ -18,9 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   ]
 })
 export class RadioGroupInputComponent implements ControlValueAccessor{
-   @Input() options: { label: string; value: any }[] = [];
-   @Input() label!: string;
-   selectedValue: any;
+  @Input() options: { label: string; value: any }[] = [];
+  @Input() label!: string;
+  selectedValue: any;
 
   private innerValue: any;
 

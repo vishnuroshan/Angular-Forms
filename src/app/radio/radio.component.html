@@ -1,9 +1,7 @@
 <div>
     <label>{{ label }}</label>
     <div *ngFor="let option of options">
-        <label [for]="option.value + '_id'">
-            <input type="radio" [id]="option.value + '_id'" [value]="option.value" [checked]="checkedOption === option" (change)="checkedOption = option" />
-            {{ option.label }}
-        </label>
+        <input type="radio" [id]="option.value + '_id'" [value]="option.value" [checked]="checkedOption === option" (change)="checkedOption = option" />
+        <label [for]="option.value + '_id'">{{ option.label }}</label>
     </div>
 </div>
