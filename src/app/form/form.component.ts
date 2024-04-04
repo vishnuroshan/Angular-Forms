@@ -9,13 +9,13 @@ import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators
 
 export class FormComponent implements OnInit{
   form!: FormGroup
-
+  submitted: boolean = false
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.createForm();
   }
-  
+
   createForm(){
     this.form = this.fb.group({
       userName: new FormControl('', [Validators.required]),
@@ -31,7 +31,8 @@ export class FormComponent implements OnInit{
     return this.form.controls['password'];
   }
 
-  onSubmit( formData: any) {
+  onSubmit(formData: any) {
     console.log(formData);
+    this.submitted = true;
   }
 }
