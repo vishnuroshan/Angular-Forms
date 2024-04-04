@@ -11,10 +11,11 @@ export class FormComponent implements OnInit{
   form!: FormGroup
   submitted: boolean = false
   constructor(private fb: FormBuilder) { }
+  
   dropdownOptions = [
-    {label:'option1', value:'value1'},
-    {label:'option2', value:'value2'},
-    {label:'option3', value:'value3'}
+    {label:'2 Years', value:'two'},
+    {label:'5 Years', value:'five'},
+    {label:'10 Years', value:'ten'}
   ]
 
   radioOptions = [
