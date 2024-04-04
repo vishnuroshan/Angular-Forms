@@ -11,6 +11,11 @@ export class FormComponent implements OnInit{
   form!: FormGroup
   submitted: boolean = false
   constructor(private fb: FormBuilder) { }
+  dropdownOptions = [
+    {label:'option1', value:'value1'},
+    {label:'option2', value:'value2'},
+    {label:'option3', value:'value3'}
+  ]
 
   ngOnInit(): void {
     this.createForm();
@@ -21,7 +26,8 @@ export class FormComponent implements OnInit{
       userName: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
       email: new FormControl('',[Validators.required]),
-      number: new FormControl('',[Validators.required])
+      number: new FormControl('',[Validators.required]),
+      dropdownOption: new FormControl(null,[Validators.required])
     })
   }
 

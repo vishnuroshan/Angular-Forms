@@ -28,6 +28,9 @@
             </p>
         </div>
 
+        <app-dropdown label="Interests" [options]="dropdownOptions" formControlName="dropdownOption"></app-dropdown>
+
+
         <div>
             <button [disabled]="!form.valid">Submit</button>
         </div>
@@ -39,5 +42,6 @@
         <p>Password: {{ form.value.password }}</p>
         <p>Email: {{ form.value.email }}</p>
         <p>Number: {{ form.value.number }}</p>
+        <p>Dropdown: {{ form.value.dropdownOption }}</p>
     </div>
 </div>
