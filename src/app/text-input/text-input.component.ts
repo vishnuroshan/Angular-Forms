@@ -22,7 +22,7 @@ export class TextInputComponent implements ControlValueAccessor{
   @Input() label: string = '';
   @Input() type: string = 'text';
   @Input() placeholder: string = '';
-  input!: string
+  input!: string;
 
   onChange: any = () => { };
   onTouched: any = () => { };
@@ -35,5 +35,17 @@ export class TextInputComponent implements ControlValueAccessor{
   }
   registerOnTouched(fn: any){
     this.onTouched = fn;
+  }
+
+  get dirty(): boolean {
+    return this.control ? this.control.dirty : false;
+  }
+
+  get touched(): boolean {
+    return this.control ? this.control.touched : false;
+  }
+
+  get disabled(): boolean {
+    return this.control ? this.control.disabled : false;
   }
 }
