@@ -9,7 +9,17 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 
 export class FormComponent implements OnInit{
-  form!: FormGroup
+
+  form: FormGroup = new FormGroup({
+    userName: new FormControl<string>(''),
+    password: new FormControl<string>(''),
+    email: new FormControl<string>(''),
+    number: new FormControl<number | null>(null),
+    dropdownOption: new FormControl<any>(null),
+    radioOption: new FormControl<any>(null),
+    checkboxOption: new FormControl<boolean>(true),
+  })
+
   submitted: boolean = false
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
@@ -39,10 +49,10 @@ export class FormComponent implements OnInit{
       userName: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
       password: ['', [Validators.required, this.passwordValidator()]],
       email: ['', [Validators.required, Validators.email]],
-      number: new FormControl('',[Validators.required]),
-      dropdownOption: new FormControl(null,[Validators.required]),
-      radioOption: new FormControl(null, [Validators.required]),
-      checkboxOption: new FormControl(true)
+      number: [null,[Validators.required]],
+      dropdownOption: [null, [Validators.required]],
+      radioOption: [null, [Validators.required]],
+      checkboxOption: [null, [Validators.required]],
     })
   }
 
