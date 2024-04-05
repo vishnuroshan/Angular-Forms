@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -46,20 +46,8 @@ export class FormComponent implements OnInit{
     })
   }
 
-  get userName() {
-    return this.form.controls['userName'];
-  }
-
-  get password() {
-    return this.form.controls['password'];
-  }
-
-  get email() {
-    return this.form.controls['email'];
-  }
-
-  get number() {
-    return this.form.controls['number'];
+  get f(): {[key:string]: AbstractControl} {
+    return this.form.controls;
   }
 
   passwordValidator(): Validators {
