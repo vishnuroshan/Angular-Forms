@@ -72,7 +72,7 @@ export class FormComponent implements OnInit{
       return valid ? null : { invalidPassword: true };
     };
   }
-  
+
   onSubmit(formData: any) {
     console.log(formData);
     this.submitted = true;
