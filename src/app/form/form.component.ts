@@ -14,9 +14,9 @@ export class FormComponent implements OnInit{
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   dropdownOptions = [
-    {label:'2 Years', value:'two'},
-    {label:'5 Years', value:'five'},
-    {label:'10 Years', value:'ten'}
+    {label:'2 Years+', value:'two'},
+    {label:'5 Years+', value:'five'},
+    {label:'10 Years+', value:'ten'}
   ]
 
   radioOptions = [
