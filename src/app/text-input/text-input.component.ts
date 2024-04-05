@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ]
 })
 export class TextInputComponent implements ControlValueAccessor{
+  @Input() control!: FormControl;
   @Input() label: string = '';
   @Input() type: string = 'text';
   @Input() placeholder: string = '';
