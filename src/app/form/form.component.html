@@ -5,6 +5,12 @@
             <p *ngIf="userName.hasError('required')" class="error">
                 PLEASE ENTER YOUR USER NAME
             </p>
+            <p *ngIf="userName.hasError('minlength')" class="error">
+                USER NAME MUST BE AT LEAST 8 CHARACTERS LONG
+            </p>
+            <p *ngIf="userName.hasError('maxlength')" class="error">
+                USER NAME MUST BE AT MOST 10 CHARACTERS LONG
+            </p>
         </div>
 
         <app-text-input type="password" label="password" formControlName="password"></app-text-input>
@@ -12,12 +18,18 @@
             <p *ngIf="password.hasError('required')" class="error">
                 PLEASE ENTER YOUR USER PASSWORD
             </p>
+            <p *ngIf="password.hasError('invalidPassword')" class="error">
+                PASSWORD MUST CONTAIN AT LEAST ONE UPPERCASE, LOWERCASE, AND SPECIAL CHARACTER
+            </p>
         </div>
 
         <app-text-input type="email" label="email" formControlName="email"></app-text-input>
         <div *ngIf="email.invalid && (email.dirty || email.touched)">
             <p *ngIf="email.hasError('required')" class="error">
                 PLEASE ENTER YOUR EMAIL
+            </p>
+            <p *ngIf="email.hasError('email')" class="error">
+                PLEASE ENTER A VALID EMAIL ADDRESS
             </p>
         </div>
 

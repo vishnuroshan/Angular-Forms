@@ -36,9 +36,9 @@ export class FormComponent implements OnInit{
 
   createForm(){
     this.form = this.fb.group({
-      userName: new FormControl('default name', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      email: new FormControl('',[Validators.required]),
+      userName: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
+      password: ['', [Validators.required, this.passwordValidator()]],
+      email: ['', [Validators.required, Validators.email]],
       number: new FormControl('',[Validators.required]),
       dropdownOption: new FormControl(null,[Validators.required]),
       radioOption: new FormControl(null, [Validators.required]),
@@ -61,7 +61,18 @@ export class FormComponent implements OnInit{
   get number() {
     return this.form.controls['number'];
   }
-
+  
+  passwordValidator(): Validators {
+    return (control: FormControl) => {
+      const value: string = control.value;
+      const hasUppercase = /[A-Z]/.test(value);
+      const hasLowercase = /[a-z]/.test(value);
+      const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+      const valid = hasUppercase && hasLowercase && hasSpecial;
+      return valid ? null : { invalidPassword: true };
+    };
+  }
+  
   onSubmit(formData: any) {
     console.log(formData);
     this.submitted = true;
