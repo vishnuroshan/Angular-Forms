@@ -8,6 +8,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { RadioGroupInputComponent } from './radio/radio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckboxComponent } from './checkbox/checkbox.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
     RadioGroupInputComponent,
     CheckboxComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

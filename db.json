@@ -1,0 +1,17 @@
+{
+  "user": [
+    {
+      "userName": "Mithun",
+      "password": "123456",
+      "email": "l@gmail.com",
+      "number": "3",
+      "dropdownOption": "five",
+      "radioOption": "male",
+      "checkboxOption": [
+        "angular",
+        "react"
+      ],
+      "id": 1
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -10,7 +11,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class FormComponent implements OnInit{
   form!: FormGroup
   submitted: boolean = false
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
   
   dropdownOptions = [
     {label:'2 Years', value:'two'},
@@ -64,5 +65,15 @@ export class FormComponent implements OnInit{
   onSubmit(formData: any) {
     console.log(formData);
     this.submitted = true;
+    if(this.form.valid){
+      this.saveData(this.form.value).subscribe(res=>{
+          console.log("Data saved successfully....");
+          
+      });
+    }
+  }
+
+  saveData(formData: any){
+    return this.http.post('http://localhost:3000/user',formData);
   }
 }
