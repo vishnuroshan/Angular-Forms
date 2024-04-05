@@ -46,9 +46,9 @@ export class FormComponent implements OnInit{
 
   createForm(){
     this.form = this.fb.group({
-      userName: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
-      password: ['', [Validators.required, this.passwordValidator()]],
-      email: ['', [Validators.required, Validators.email]],
+      userName: [{value: '', disabled: false }, [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
+      password: [{value: '', disabled: false }, [Validators.required, this.passwordValidator()]],
+      email: [{value: '', disabled: false },[Validators.required, Validators.email]],
       number: [null,[Validators.required]],
       dropdownOption: [null, [Validators.required]],
       radioOption: [null, [Validators.required]],
