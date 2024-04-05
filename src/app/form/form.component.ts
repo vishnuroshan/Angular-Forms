@@ -56,22 +56,6 @@ export class FormComponent implements OnInit{
     })
   }
 
-  get userName() {
-    return this.form.controls['userName'];
-  }
-
-  get password() {
-    return this.form.controls['password'];
-  }
-
-  get email() {
-    return this.form.controls['email'];
-  }
-
-  get number() {
-    return this.form.controls['number'];
-  }
-
   passwordValidator(): Validators {
     return (control: FormControl) => {
       const value: string = control.value;

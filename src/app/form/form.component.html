@@ -1,44 +1,12 @@
 <div class="wrapper">
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-        <app-text-input type="text" label="UserName" formControlName="userName" placeholder="Enter your username"></app-text-input>
-        <div *ngIf="userName.invalid && (userName.dirty || userName.touched)">
-            <p *ngIf="userName.hasError('required')" class="error">
-                PLEASE ENTER YOUR USER NAME
-            </p>
-            <p *ngIf="userName.hasError('minlength')" class="error">
-                USER NAME MUST BE AT LEAST 8 CHARACTERS LONG
-            </p>
-            <p *ngIf="userName.hasError('maxlength')" class="error">
-                USER NAME MUST BE AT MOST 10 CHARACTERS LONG
-            </p>
-        </div>
+        <app-text-input type="text" label="UserName"  [control]="$any(form.get('userName'))" placeholder="Enter your username"></app-text-input>
+       
+        <app-text-input type="password" label="password"  [control]="$any(form.get('password'))" placeholder=""></app-text-input>
+        
+        <app-text-input type="email" label="email"  [control]="$any(form.get('email'))" placeholder="johndoe@example.com"></app-text-input>
 
-        <app-text-input type="password" label="password" formControlName="password" placeholder=""></app-text-input>
-        <div *ngIf="password.invalid && (password.dirty || password.touched)">
-            <p *ngIf="password.hasError('required')" class="error">
-                PLEASE ENTER YOUR USER PASSWORD
-            </p>
-            <p *ngIf="password.hasError('invalidPassword')" class="error">
-                PASSWORD MUST CONTAIN AT LEAST ONE UPPERCASE, LOWERCASE, AND SPECIAL CHARACTER
-            </p>
-        </div>
-
-        <app-text-input type="email" label="email" formControlName="email" placeholder="johndoe@example.com"></app-text-input>
-        <div *ngIf="email.invalid && (email.dirty || email.touched)">
-            <p *ngIf="email.hasError('required')" class="error">
-                PLEASE ENTER YOUR EMAIL
-            </p>
-            <p *ngIf="email.hasError('email')" class="error">
-                PLEASE ENTER A VALID EMAIL ADDRESS
-            </p>
-        </div>
-
-        <app-text-input type="number" label="number" formControlName="number" placeholder="Enter your lpa"></app-text-input>
-        <div *ngIf="number.invalid && (number.dirty || number.touched)">
-            <p *ngIf="number.hasError('required')" class="error">
-                PLEASE ENTER YOUR PREVIOUS SALARY IN LAKHS PER ANNUM
-            </p>
-        </div>
+        <app-text-input type="number" label="number"  [control]="$any(form.get('number'))" placeholder="Enter your lpa"></app-text-input>
 
         <app-dropdown label="Experience" [options]="dropdownOptions" formControlName="dropdownOption" placeholder="Select years of experience"></app-dropdown>
 
