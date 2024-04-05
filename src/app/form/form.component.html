@@ -50,15 +50,3 @@
             <button [disabled]="!form.valid">Submit</button>
         </div>
     </form>
-
-    <div *ngIf="submitted">
-        <h2>Submitted Values:</h2>
-        <p>UserName: {{ form.value.userName }}</p>
-        <p>Password: {{ form.value.password }}</p>
-        <p>Email: {{ form.value.email }}</p>
-        <p>Number: {{ form.value.number }}</p>
-        <p>Dropdown: {{ form.value.dropdownOption }}</p>
-        <p>Gender:{{ form.value.radioOption }}</p>
-        <p>Hobby:{{ form.value.checkboxOption }}</p>
-
-    </div>

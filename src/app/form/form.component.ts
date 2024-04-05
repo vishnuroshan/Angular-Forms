@@ -12,7 +12,7 @@ export class FormComponent implements OnInit{
   form!: FormGroup
   submitted: boolean = false
   constructor(private fb: FormBuilder, private http: HttpClient) { }
-  
+
   dropdownOptions = [
     {label:'2 Years', value:'two'},
     {label:'5 Years', value:'five'},
@@ -61,7 +61,7 @@ export class FormComponent implements OnInit{
   get number() {
     return this.form.controls['number'];
   }
-  
+
   passwordValidator(): Validators {
     return (control: FormControl) => {
       const value: string = control.value;
@@ -76,10 +76,11 @@ export class FormComponent implements OnInit{
   onSubmit(formData: any) {
     console.log(formData);
     this.submitted = true;
-    if(this.form.valid){
+    if(this.form.valid) {
       this.saveData(this.form.value).subscribe(res=>{
-          console.log("Data saved successfully....");
-          
+        console.log("Data saved successfully....");
+        this.form.reset();
+        this.submitted = false;
       });
     }
   }
