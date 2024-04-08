@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Injector, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { FormControlHelper } from '../helpers/form-control-helper';
 
 @Component({
   selector: 'app-checkbox',
@@ -16,20 +17,24 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@a
     }
   ]
 })
-export class CheckboxComponent implements ControlValueAccessor {
+export class CheckboxComponent implements ControlValueAccessor,OnInit {
   @Input() options: { label: string; value: any }[] = [];
   @Input() label!: string;
   selectedValue: any;
-
+  control: FormControl | any;
   private innerValue: any;
-
-  constructor() {
-    this.innerValue = []
-  }
 
   onChange: any = () => {};
   onTouch: any = () => {};
 
+  constructor(private injector: Injector) {
+    this.innerValue = []
+  }
+  
+  ngOnInit() {
+    this.control = FormControlHelper.setFormControl(this.injector);
+  }
+  
   get checkedOptions(): any[] {
     if (!this.innerValue || !Array.isArray(this.innerValue)) {
         return [];
