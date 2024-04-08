@@ -1,0 +1,15 @@
+{
+  "user": [
+    {
+      "id": "d602",
+      "password": "Admin@123",
+      "email": "tushar@sedintechnologies.com",
+      "number": "2",
+      "dropdownOption": "five",
+      "radioOption": "male",
+      "checkboxOption": [
+        "angular"
+      ]
+    }
+  ]
+}

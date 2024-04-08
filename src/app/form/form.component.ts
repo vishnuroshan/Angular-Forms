@@ -46,9 +46,9 @@ export class FormComponent implements OnInit{
 
   createForm(){
     this.form = this.fb.group({
-      userName: [{value: '', disabled: true }, [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
+      userName: [{value: 'def', disabled: true }, [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
       password: [{value: '', disabled: false }, [Validators.required, this.passwordValidator()]],
-      email: [{value: '', disabled: false },[Validators.required, Validators.email]],
+      email: [{value: 'default@gmail.com', disabled: false },[Validators.required, Validators.email]],
       number: [null,[Validators.required]],
       dropdownOption: [null, [Validators.required]],
       radioOption: [null, [Validators.required]],
@@ -74,6 +74,7 @@ export class FormComponent implements OnInit{
       this.saveData(this.form.value).subscribe(res=>{
         console.log("Data saved successfully....");
         this.form.reset();
+        this.createForm();
         this.submitted = false;
       });
     }
