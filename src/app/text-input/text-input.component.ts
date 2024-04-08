@@ -1,7 +1,8 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component,Injector,Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ControlValueAccessor, FormControl, FormGroup, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormControl, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormControlHelper } from '../helpers/form-control-helper';
 
 @Component({
   selector: 'app-text-input',
@@ -17,8 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     }
   ]
 })
-export class TextInputComponent implements ControlValueAccessor{
-  @Input() control!: FormControl;
+export class TextInputComponent implements ControlValueAccessor,OnInit{
+  control: FormControl | any;
   @Input() label: string = '';
   @Input() type: string = 'text';
   @Input() placeholder: string = '';
@@ -27,6 +28,12 @@ export class TextInputComponent implements ControlValueAccessor{
   onChange: any = () => { };
   onTouched: any = () => { };
 
+  constructor(private injector: Injector) {}
+
+  ngOnInit() {
+    this.control = FormControlHelper.setFormControl(this.injector);
+  }
+  
   writeValue(input: any){
     this.input = input;
   }
