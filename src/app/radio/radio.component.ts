@@ -1,7 +1,8 @@
-import { Component,Input } from '@angular/core';
+import { Component,Injector,Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormControl, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormControlHelper } from '../helpers/form-control-helper';
 
 @Component({
   selector: 'app-radio',
@@ -17,17 +18,21 @@ import { ReactiveFormsModule } from '@angular/forms';
     }
   ]
 })
-export class RadioGroupInputComponent implements ControlValueAccessor{
+export class RadioGroupInputComponent implements ControlValueAccessor,OnInit{
   @Input() options: { label: string; value: any }[] = [];
   @Input() label!: string;
+  control: FormControl | any;
   selectedValue: any;
-
   private innerValue: any;
-
-  constructor() { }
 
   onChange: any = () => {};
   onTouch: any = () => {};
+  
+  constructor(private injector: Injector) {}
+
+  ngOnInit() {
+    this.control = FormControlHelper.setFormControl(this.injector);
+  }
 
   get checkedOption(): any {
     return this.options.find(option => option.value === this.innerValue);
