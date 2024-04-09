@@ -17,7 +17,7 @@ export class FormComponent implements OnInit{
     number: new FormControl<number | null>(null),
     dropdownOption: new FormControl<any>(null),
     radioOption: new FormControl<any>(null),
-    checkboxOption: new FormControl<boolean>(true),
+    checkboxOption: new FormControl<string[]>([]),
   })
 
   submitted: boolean = false
@@ -51,8 +51,8 @@ export class FormComponent implements OnInit{
       email: [{value: 'default@gmail.com', disabled: false },[Validators.required, Validators.email]],
       number: [{value: null, disabled: false },[Validators.required]],
       dropdownOption: [{value: null, disabled: false }, [Validators.required]],
-      radioOption: [{value: null, disabled: false }, [Validators.required]],
-      checkboxOption: [{value: null, disabled: false }, [Validators.required]],
+      radioOption: [{value: null, disabled: true }, [Validators.required]],
+      checkboxOption: [{value: ["angular", "vue"], disabled: false }, [Validators.required]],
     })
   }
 

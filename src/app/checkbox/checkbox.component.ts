@@ -75,6 +75,8 @@ export class CheckboxComponent implements ControlValueAccessor,OnInit {
     } else {
       this.checkedOptions = [...this.checkedOptions, option];
     }
+    const selectedValues = this.checkedOptions.map(o => o.value);
+    this.control.setValue(selectedValues);
   }
 
   get dirty(): boolean {

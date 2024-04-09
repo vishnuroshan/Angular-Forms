@@ -10,6 +10,18 @@
       "checkboxOption": [
         "angular"
       ]
+    },
+    {
+      "id": "ae89",
+      "userName": "defaultname",
+      "password": "R@ils",
+      "email": "default@gmail.com",
+      "number": "3",
+      "dropdownOption": "two",
+      "checkboxOption": [
+        "angular",
+        "react"
+      ]
     }
   ]
 }
