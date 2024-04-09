@@ -1,0 +1,21 @@
+<div *ngIf="invalid && touched">
+    <p *ngIf="errors?.['required']" class="error">
+        PLEASE ENTER YOUR {{ label.toUpperCase() }}
+    </p>
+
+    <p *ngIf="errors?.['maxlength']" class="error">
+        {{ label.toUpperCase() }} MUST BE AT MOST {{ errors?.['maxlength']?.['requiredLength'] }} CHARACTERS LONG
+    </p>
+
+    <p *ngIf="errors?.['minlength']" class="error">
+        {{ label.toUpperCase() }} MUST BE AT LEAST {{ errors?.['minlength']?.['requiredLength'] }} CHARACTERS LONG
+    </p>
+
+    <p *ngIf="!errors?.['required'] && errors?.['invalidPassword']" class="error">
+        {{ label.toUpperCase() }} MUST CONTAIN AT LEAST ONE UPPERCASE, LOWERCASE, AND SPECIAL CHARACTER
+    </p>
+
+    <p *ngIf="errors?.['email']" class="error">
+        PLEASE ENTER A VALID EMAIL ADDRESS
+    </p>
+</div>
