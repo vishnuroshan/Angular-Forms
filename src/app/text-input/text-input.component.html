@@ -6,25 +6,6 @@
            [placeholder]="placeholder"
     />
     
-    <div *ngIf="control?.invalid && control?.touched">
-        <p *ngIf="control?.hasError('required')" class="error">
-            PLEASE ENTER YOUR {{ label.toUpperCase() }}
-        </p>
-
-        <p *ngIf="control?.hasError('maxlength')" class="error">
-            {{ label.toUpperCase() }} MUST BE AT MOST {{ control?.getError('maxlength').requiredLength }} CHARACTERS LONG
-        </p>
-
-        <p *ngIf="control?.hasError('minlength')" class="error">
-            {{ label.toUpperCase() }} MUST BE AT LEAST {{ control?.getError('minlength').requiredLength }} CHARACTERS LONG
-        </p>
-
-        <p *ngIf="!control?.hasError('required') && control?.hasError('invalidPassword')" class="error">
-            {{ label.toUpperCase() }} MUST CONTAIN AT LEAST ONE UPPERCASE, LOWERCASE, AND SPECIAL CHARACTER
-        </p>
-
-        <p *ngIf="control?.hasError('email')" class="error">
-            PLEASE ENTER A VALID EMAIL ADDRESS
-        </p>
-    </div>
+   <app-validation-errors [errors]="control?.errors" [invalid]="control?.invalid" [touched]="control?.touched" [label]="label"></app-validation-errors>
+    
 </div>
