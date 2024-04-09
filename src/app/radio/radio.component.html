@@ -1,7 +1,7 @@
 <div class="radio-wrapper">
-    <label>{{ label }}</label>
-    <div *ngFor="let option of options">
-        <input type="radio" [id]="option.value + '_id'" [value]="option.value" [formControl]="control" [checked]="checkedOption === option" (change)="checkedOption = option" />
-        <label [for]="option.value + '_id'">{{ option.label }}</label>
-    </div>
+  <label>{{label}}</label>
+  <div *ngFor="let option of options">
+    <input type="radio" [value]="option.value" [formControl]="control" (blur)="onTouch()">
+    <label>{{ option.label }}</label>
+  </div>
 </div>

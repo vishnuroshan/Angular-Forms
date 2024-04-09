@@ -51,7 +51,7 @@ export class FormComponent implements OnInit{
       email: [{value: 'default@gmail.com', disabled: false },[Validators.required, Validators.email]],
       number: [{value: null, disabled: false },[Validators.required]],
       dropdownOption: [{value: null, disabled: false }, [Validators.required]],
-      radioOption: [{value: null, disabled: true }, [Validators.required]],
+      radioOption: [{value: null, disabled: false }, [Validators.required]],
       checkboxOption: [{value: null, disabled: false }, [Validators.required]],
     })
   }

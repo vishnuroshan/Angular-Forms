@@ -34,18 +34,6 @@ export class RadioGroupInputComponent implements ControlValueAccessor, OnInit {
     this.control = FormControlHelper.setFormControl(this.injector);
   }
 
-  get checkedOption(): any {
-    return this.options.find(option => option.value === this.innerValue);
-  }
-
-  set checkedOption(option: any) {
-    if (option) {
-      this.innerValue = option.value;
-      this.onChange(this.innerValue);
-      this.onTouch(this.innerValue);
-    }
-  }
-
   writeValue(value: any): void {
     this.innerValue = value;
   }
