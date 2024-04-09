@@ -30,11 +30,11 @@ export class CheckboxComponent implements ControlValueAccessor,OnInit {
   constructor(private injector: Injector) {
     this.innerValue = []
   }
-  
+
   ngOnInit() {
     this.control = FormControlHelper.setFormControl(this.injector);
   }
-  
+
   get checkedOptions(): any[] {
     if (!this.innerValue || !Array.isArray(this.innerValue)) {
         return [];
@@ -75,5 +75,17 @@ export class CheckboxComponent implements ControlValueAccessor,OnInit {
     } else {
       this.checkedOptions = [...this.checkedOptions, option];
     }
+  }
+
+  get dirty(): boolean {
+    return this.control ? this.control.dirty : false;
+  }
+
+  get touched(): boolean {
+    return this.control ? this.control.touched : false;
+  }
+
+  get disabled(): boolean {
+    return this.control ? this.control.disabled : false;
   }
 }

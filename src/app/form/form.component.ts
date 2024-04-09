@@ -49,10 +49,10 @@ export class FormComponent implements OnInit{
       userName: [{value: 'def', disabled: false }, [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
       password: [{value: '', disabled: false }, [Validators.required, this.passwordValidator()]],
       email: [{value: 'default@gmail.com', disabled: false },[Validators.required, Validators.email]],
-      number: [null,[Validators.required]],
-      dropdownOption: [null, [Validators.required]],
-      radioOption: [null, [Validators.required]],
-      checkboxOption: [null, [Validators.required]],
+      number: [{value: null, disabled: false },[Validators.required]],
+      dropdownOption: [{value: null, disabled: false }, [Validators.required]],
+      radioOption: [{value: null, disabled: true }, [Validators.required]],
+      checkboxOption: [{value: null, disabled: false }, [Validators.required]],
     })
   }
 

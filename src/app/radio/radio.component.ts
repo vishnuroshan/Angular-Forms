@@ -18,16 +18,16 @@ import { FormControlHelper } from '../helpers/form-control-helper';
     }
   ]
 })
-export class RadioGroupInputComponent implements ControlValueAccessor,OnInit{
+export class RadioGroupInputComponent implements ControlValueAccessor, OnInit {
   @Input() options: { label: string; value: any }[] = [];
-  @Input() label!: string;
+  @Input() label = '';
   control: FormControl | any;
   selectedValue: any;
   private innerValue: any;
 
   onChange: any = () => {};
   onTouch: any = () => {};
-  
+
   constructor(private injector: Injector) {}
 
   ngOnInit() {
@@ -58,4 +58,15 @@ export class RadioGroupInputComponent implements ControlValueAccessor,OnInit{
     this.onTouch = fn;
   }
 
+  get dirty(): boolean {
+    return this.control ? this.control.dirty : false;
+  }
+
+  get touched(): boolean {
+    return this.control ? this.control.touched : false;
+  }
+
+  get disabled(): boolean {
+    return this.control ? this.control.disabled : false;
+  }
 }
