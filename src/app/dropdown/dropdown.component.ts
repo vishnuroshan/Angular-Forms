@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import {  Component, forwardRef, Injector, Input } from '@angular/core';
+import { ControlValueAccessor, FormControl, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { FormControlHelper } from '../helpers/form-control-helper';
+import { distinctUntilChanged, startWith, Subject, takeUntil, tap } from 'rxjs';
 
 @Component({
   selector: 'app-dropdown',
@@ -19,14 +21,24 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModu
 export class DropdownComponent implements ControlValueAccessor {
   @Input() options: any[] = [];
   @Input() label: string = 'Select';
+  private _destroy$ = new Subject<void>();
+  private _isDisabled = false;
   selectedOptions: any[] = [];
+  control: FormControl | any;
 
-  constructor() { }
+  constructor(private injector: Injector) { }
 
   onChange: any = () => { };
   onTouched: any = () => { };
 
+  ngOnInit() {
+    this.control = FormControlHelper.setFormControl(this.injector);
+  }
+
   writeValue(value: any): void {
+    if(!this.control) {
+      this.control = new FormControl(value);
+    }
     if (Array.isArray(value)) {
       this.selectedOptions = value;
     } else {
@@ -35,6 +47,7 @@ export class DropdownComponent implements ControlValueAccessor {
   }
 
   registerOnChange(fn: any): void {
+    
     this.onChange = fn;
   }
 
@@ -46,5 +59,9 @@ export class DropdownComponent implements ControlValueAccessor {
     this.selectedOptions = options;
     this.onChange(options);
     this.onTouched();
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    this._isDisabled = isDisabled;
   }
 }
