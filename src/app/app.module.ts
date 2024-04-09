@@ -9,11 +9,13 @@ import { RadioGroupInputComponent } from './radio/radio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ValidationErrorsComponent } from './validation-errors/validation-errors.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -22,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     DropdownComponent,
     RadioGroupInputComponent,
     CheckboxComponent,
+    ValidationErrorsComponent,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
