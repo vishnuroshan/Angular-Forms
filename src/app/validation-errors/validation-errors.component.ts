@@ -18,8 +18,8 @@ export class ValidationErrorsComponent {
 
   errorMessages: Record<string,string> = {
     required: `The field is required`,
-    maxlength: 'You have entered less characters than expected',
-    minlength: 'You have entered more characters than expected',
+    maxlength: 'You have entered more characters than expected',
+    minlength: 'You have entered less characters than expected',
     invalidPassword: 'Password must contain atleast one uppercase,lowercase and a special character',
     email: 'Enter a valid email address'
   }
