@@ -3,7 +3,7 @@ import {  Component, forwardRef, Injector, Input } from '@angular/core';
 import { ControlValueAccessor, FormControl, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { FormControlHelper } from '../helpers/form-control-helper';
 import { distinctUntilChanged, startWith, Subject, takeUntil, tap } from 'rxjs';
-
+import { Options } from '../interfaces/options.interface'
 @Component({
   selector: 'app-dropdown',
   standalone: true,
@@ -19,7 +19,7 @@ import { distinctUntilChanged, startWith, Subject, takeUntil, tap } from 'rxjs';
   ]
 })
 export class DropdownComponent implements ControlValueAccessor {
-  @Input() options: any[] = [];
+  @Input() options: Options<any>[] = [];
   @Input() label: string = 'Select';
   private _destroy$ = new Subject<void>();
   private _isDisabled = false;

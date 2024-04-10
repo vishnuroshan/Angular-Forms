@@ -2,6 +2,7 @@ import { Component, Injector, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { FormControlHelper } from '../helpers/form-control-helper';
+import { Options } from '../interfaces/options.interface'
 
 @Component({
   selector: 'app-checkbox',
@@ -18,7 +19,7 @@ import { FormControlHelper } from '../helpers/form-control-helper';
   ]
 })
 export class CheckboxComponent implements ControlValueAccessor,OnInit {
-  @Input() options: { label: string; value: any }[] = [];
+  @Input() options: Options<any>[] = [];
   @Input() label!: string;
   selectedValue: any;
   control: FormControl | any;

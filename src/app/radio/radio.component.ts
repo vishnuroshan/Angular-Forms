@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, FormControl, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormControlHelper } from '../helpers/form-control-helper';
+import { Options } from '../interfaces/options.interface'
 
 @Component({
   selector: 'app-radio',
@@ -19,7 +20,7 @@ import { FormControlHelper } from '../helpers/form-control-helper';
   ]
 })
 export class RadioGroupInputComponent implements ControlValueAccessor, OnInit {
-  @Input() options: { label: string; value: any }[] = [];
+  @Input() options: Options<any>[] = [];
   @Input() label = '';
   control: FormControl | any;
   selectedValue: any;
