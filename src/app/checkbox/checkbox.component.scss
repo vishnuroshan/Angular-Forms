@@ -26,8 +26,27 @@
   }
 
   input[type="checkbox"] {
-    accent-color: #00A64B;
-    margin-right: 5px;
+    margin-right: 10px;
     vertical-align: middle;
+    display: inline-block;
+  }
+
+  input[type="checkbox"]::before {
+      content: '';
+      display: inline-block;
+      width: 13px;
+      height: 14px;
+      border: 1.8px solid #B0C0CF;
+      border-radius: 3px;
+      background-color: white;
+      vertical-align: middle;
+  }
+
+  input[type="checkbox"]:checked::before {
+      content: '✔';
+      text-align: center;
+      line-height: 16px;
+      color: #00A64B;
+      background-color: white;
   }
 }
