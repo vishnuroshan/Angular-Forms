@@ -27,17 +27,16 @@
 
   input[type="checkbox"] {
     margin-right: 10px;
-    vertical-align: middle;
     display: inline-block;
   }
 
   input[type="checkbox"]::before {
       content: '';
       display: inline-block;
-      width: 13px;
-      height: 14px;
-      border: 1.8px solid #B0C0CF;
-      border-radius: 3px;
+      width: 14px;
+      height: 15px;
+      border: 1.7px solid #B0C0CF;
+      border-radius: 2px;
       background-color: white;
       vertical-align: middle;
   }

@@ -49,10 +49,10 @@ export class FormComponent implements OnInit{
       userName: [{value: 'defaultname', disabled: false }, [Validators.required, Validators.minLength(8), Validators.maxLength(15)]],
       password: [{value: 'R@ils', disabled: false }, [Validators.required, this.passwordValidator()]],
       email: [{value: 'default@gmail.com', disabled: true },[Validators.required, Validators.email]],
-      number: [{value: null, disabled: false },[Validators.required]],
+      number: [{value: null, disabled: false },[Validators.required, Validators.min(1)]],
       dropdownOption: [{value: null, disabled: false }, [Validators.required]],
       radioOption: [{value: null, disabled: false }, []],
-      checkboxOption: [{value: ["angular", "vue"], disabled: false }, [Validators.required]],
+      checkboxOption: [{value: ["angular"], disabled: false }, [Validators.required]],
     })
   }
 
