@@ -1,10 +1,10 @@
 .radio-wrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
 
   label {
-    color: #28293d;
+    align-items: center;
+    color: #040404;
     font-size: 14px;
     font-weight: bold;
     font-family: Staff;
@@ -27,5 +27,9 @@
 
   div label {
     margin-left: 10px;
+  }
+
+  input[type="radio"] {
+    accent-color: #00A64B;
   }
 }
