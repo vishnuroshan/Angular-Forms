@@ -3,7 +3,11 @@
 
   label {
     margin-bottom: 5px;
+    color: #28293d;
+    font-size: 14px;
     font-weight: bold;
+    font-family: Staff;
+    line-height: 22px;
     position: relative;
   }
 
@@ -21,7 +25,8 @@
   }
 
   input[type="checkbox"] {
-    margin-right: 5px;
+    width: 9px;
+    height: 12px;
   }
 
   .checkbox-option {

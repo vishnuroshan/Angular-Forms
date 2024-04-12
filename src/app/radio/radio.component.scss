@@ -4,13 +4,16 @@
   margin-bottom: 15px;
 
   label {
-    margin-bottom: 5px;
+    color: #28293d;
+    font-size: 14px;
     font-weight: bold;
+    font-family: Staff;
+    line-height: 22px;
     position: relative;
-    }
+  }
 
   .required-marker {
-    color: red; 
+    color: red;
     position: absolute;
     top: 0;
     margin-left: 5px;

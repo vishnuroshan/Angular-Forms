@@ -2,9 +2,12 @@
   position: relative;
 
   label {
-    display: block;
-    margin-bottom: 5px;
+    color: #28293d;
+    font-size: 14px;
     font-weight: bold;
+    font-family: Staff;
+    line-height: 22px;
+    position: relative;
   }
 
   .required-marker {
