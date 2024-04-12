@@ -91,4 +91,8 @@ export class CheckboxComponent implements ControlValueAccessor,OnInit {
   get disabled(): boolean {
     return this.control ? this.control.disabled : false;
   }
+
+  get isRequired(): boolean {
+    return this.control ? !!this.control.validator && !!this.control.validator({} as FormControl)?.required : false;
+  }
 }

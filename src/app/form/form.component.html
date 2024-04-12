@@ -1,18 +1,18 @@
 <div class="wrapper">
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-        <app-text-input type="text" label="UserName" formControlName="userName"  placeholder="Enter your username"></app-text-input>
-       
-        <app-text-input type="password" label="password"  formControlName="password" placeholder=""></app-text-input>
-        
-        <app-text-input type="email" label="email" formControlName="email" placeholder="johndoe@example.com"></app-text-input>
+        <app-text-input type="text" label="Username" formControlName="userName"  placeholder="Enter your username"></app-text-input>
 
-        <app-text-input type="number" label="Expected ctc"  formControlName="number" placeholder="Enter your lpa"></app-text-input>
+        <app-text-input type="password" label="Password"  formControlName="password" placeholder=""></app-text-input>
+
+        <app-text-input type="email" label="Email" formControlName="email" placeholder="johndoe@example.com"></app-text-input>
+
+        <app-text-input type="number" label="Expected CTC"  formControlName="number" placeholder="Enter your lpa"></app-text-input>
 
         <app-dropdown label="Experience" [options]="dropdownOptions" formControlName="dropdownOption" placeholder="Select years of experience"></app-dropdown>
 
         <app-radio label="Gender" [options]="radioOptions" formControlName="radioOption"></app-radio>
 
-        <app-checkbox label="Tech Stack" [options]="checkBoxOptions" formControlName="checkboxOption"></app-checkbox>
+        <app-checkbox label="Tech-Stack" [options]="checkBoxOptions" formControlName="checkboxOption"></app-checkbox>
 
         <div>
             <button [disabled]="!form.valid">Submit</button>

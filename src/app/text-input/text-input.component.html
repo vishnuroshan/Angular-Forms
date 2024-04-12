@@ -1,11 +1,13 @@
 <div class="form-input-container">
-    <label [for]="label">{{label}}</label>
+    <label [for]="label">
+        {{label}}
+        <span *ngIf="isRequired" class="required-marker">*</span>
+    </label>
     <input [type]="type"
            [id]="label"
            [formControl]="control"
            [placeholder]="placeholder"
     />
     
-   <app-validation-errors [errors]="control?.errors" [invalid]="control?.invalid" [touched]="control?.touched" [label]="label"></app-validation-errors>
-    
+    <app-validation-errors [errors]="control?.errors" [invalid]="control?.invalid" [touched]="control?.touched" [label]="label"></app-validation-errors>
 </div>

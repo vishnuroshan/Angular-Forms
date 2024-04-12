@@ -1,5 +1,8 @@
 <div class="radio-wrapper">
-  <label>{{label}}</label>
+  <label>
+    {{label}}
+    <span *ngIf="isRequired" class="required-marker">*</span>
+  </label>
   <div *ngFor="let option of options">
     <input type="radio" [value]="option.value" [formControl]="control" (blur)="onTouch()">
     <label>{{ option.label }}</label>

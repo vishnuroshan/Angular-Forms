@@ -1,23 +1,39 @@
-.formgroup {
-    margin-bottom: 1rem;
-}
-
 .form-input-container {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
+  position: relative;
 
   label {
+    display: block;
     margin-bottom: 5px;
     font-weight: bold;
   }
 
+  .required-marker {
+    color: red;
+    position: absolute;
+    margin-left: 5px;
+    top: 0;
+    right: 3;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: darkred;
+    }
+  }
+
   input {
+    width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    transition: border-color 0.3s;
   }
 
+  input:focus {
+    border-color: dodgerblue;
+  }
 }
 

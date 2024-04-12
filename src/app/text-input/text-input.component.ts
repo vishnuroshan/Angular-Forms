@@ -34,7 +34,7 @@ export class TextInputComponent implements ControlValueAccessor,OnInit{
   ngOnInit() {
     this.control = FormControlHelper.setFormControl(this.injector);
   }
-  
+
   writeValue(input: any){
     this.input = input;
   }
@@ -55,5 +55,9 @@ export class TextInputComponent implements ControlValueAccessor,OnInit{
 
   get disabled(): boolean {
     return this.control ? this.control.disabled : false;
+  }
+
+  get isRequired(): boolean {
+    return this.control ? !!this.control.validator && !!this.control.validator({} as FormControl)?.required : false;
   }
 }

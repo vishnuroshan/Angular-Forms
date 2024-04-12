@@ -6,6 +6,20 @@
   label {
     margin-bottom: 5px;
     font-weight: bold;
+    position: relative;
+    }
+
+  .required-marker {
+    color: red;
+    position: absolute;
+    top: 0;
+    margin-left: 5px;
+    right: 3;
+    font-size: 14px;
+
+    &:hover {
+      color: darkred;
+    }
   }
 
   select {

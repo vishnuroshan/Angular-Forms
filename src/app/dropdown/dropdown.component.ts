@@ -47,7 +47,6 @@ export class DropdownComponent implements ControlValueAccessor {
   }
 
   registerOnChange(fn: any): void {
-    
     this.onChange = fn;
   }
 
@@ -63,5 +62,9 @@ export class DropdownComponent implements ControlValueAccessor {
 
   setDisabledState?(isDisabled: boolean): void {
     this._isDisabled = isDisabled;
+  }
+
+  get isRequired(): boolean {
+    return this.control ? !!this.control.validator && !!this.control.validator({} as FormControl)?.required : false;
   }
 }
