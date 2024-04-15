@@ -4,6 +4,8 @@ import { ControlValueAccessor, FormControl, FormsModule, NG_VALUE_ACCESSOR } fro
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormControlHelper } from '../helpers/form-control-helper';
 import { ValidationErrorsComponent } from '../validation-errors/validation-errors.component';
+import { ICONS } from '../icons/icons';
+
 
 @Component({
   selector: 'app-text-input',
@@ -24,6 +26,7 @@ export class TextInputComponent implements ControlValueAccessor,OnInit{
   @Input() label: string = '';
   @Input() type: string = 'text';
   @Input() placeholder: string = '';
+  @Input() prefixIcon: string = ''; //Icon name from form component
   input!: string;
 
   onChange: any = () => { };
@@ -43,6 +46,10 @@ export class TextInputComponent implements ControlValueAccessor,OnInit{
   }
   registerOnTouched(fn: any){
     this.onTouched = fn;
+  }
+  
+  get icons() {
+    return ICONS
   }
 
   get dirty(): boolean {

@@ -9,6 +9,7 @@
            [placeholder]="placeholder"
            [class.error]="control.invalid && control.touched"
     />
-    
     <app-validation-errors [errors]="control?.errors" [invalid]="control?.invalid" [touched]="control?.touched" [label]="label"></app-validation-errors>
+
+    <span [innerHtml]="icons['successinfo']"></span>
 </div>
