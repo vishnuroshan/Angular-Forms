@@ -1,8 +1,8 @@
 <div class="wrapper">
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-        <app-text-input type="text" label="Username" formControlName="userName"  placeholder="Enter your username"></app-text-input>
+        <app-text-input type="text" [allowOnlyText]="true" label="Username" formControlName="userName"  placeholder="Enter your username"></app-text-input>
 
-        <app-text-input type="password" label="Password"  formControlName="password" placeholder=""></app-text-input>
+        <app-text-input type="password" [allowOnlyText]="true" label="Password"  formControlName="password" placeholder=""></app-text-input>
 
         <app-text-input type="email" label="Email" formControlName="email" placeholder="johndoe@example.com"></app-text-input>
 
