@@ -1,4 +1,4 @@
-import { Component,Injector,Input, OnInit } from '@angular/core';
+import { Component,HostListener,Injector,Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, FormControl, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -24,10 +24,21 @@ export class TextInputComponent implements ControlValueAccessor,OnInit{
   @Input() label: string = '';
   @Input() type: string = 'text';
   @Input() placeholder: string = '';
+  @Input() allowOnlyText: boolean = false;
   input!: string;
 
   onChange: any = () => { };
   onTouched: any = () => { };
+
+  @HostListener('keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    if (this.allowOnlyText && this.type === 'text') {
+      const allowedCharacters = /^[a-zA-Z]+$/;
+      if (!allowedCharacters.test(event.key)) {
+        event.preventDefault();
+      }
+    }
+  }
 
   constructor(private injector: Injector) {}
 
