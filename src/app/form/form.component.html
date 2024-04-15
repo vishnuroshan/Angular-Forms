@@ -13,6 +13,8 @@
         <app-radio label="Gender" [options]="radioOptions" formControlName="radioOption"></app-radio>
 
         <app-checkbox label="Tech-Stack" [options]="checkBoxOptions" formControlName="checkboxOption"></app-checkbox>
+        
+        <app-multi-select label="Preferred Location" [options]="multiSelectOptions" [dropdownSettings]="dropdownSettings" formControlName="multiSelectOption"></app-multi-select>
 
         <div>
             <button [disabled]="!form.valid">Submit</button>

@@ -22,6 +22,52 @@
         "angular",
         "react"
       ]
+    },
+    {
+      "id": "3e77",
+      "userName": "defaultname",
+      "password": "R@ils",
+      "number": "4",
+      "dropdownOption": "five",
+      "radioOption": "male",
+      "checkboxOption": [
+        "angular",
+        "vue"
+      ],
+      "multiSelectOption": [
+        {
+          "item_id": 1,
+          "item_text": "Chennai"
+        },
+        {
+          "item_id": 2,
+          "item_text": "Bangaluru"
+        }
+      ]
+    },
+    {
+      "id": "7f65",
+      "userName": "defaultname",
+      "password": "R@ils",
+      "number": "2",
+      "dropdownOption": "five",
+      "radioOption": "male",
+      "checkboxOption": [
+        "angular",
+        "vue"
+      ]
+    },
+    {
+      "id": "82ac",
+      "userName": "defaultname",
+      "password": "R@ils",
+      "number": "4",
+      "dropdownOption": "five",
+      "radioOption": "male",
+      "checkboxOption": [
+        "angular",
+        "vue"
+      ]
     }
   ]
 }

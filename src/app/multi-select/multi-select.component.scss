@@ -1,0 +1,28 @@
+.multi-select {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 95%;
+  
+    label {
+      color: #040404;
+      font-size: 14px;
+      font-weight: bold;
+      font-family: Staff;
+      line-height: 22px;
+      position: relative;
+    }
+  
+    ng-multiselect-dropdown {
+      border: 1px;
+      border-radius: 3px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  
+    ng-multiselect-dropdown:focus{
+      border-color: #8638E5;
+      outline: none;
+    }
+  }
+  

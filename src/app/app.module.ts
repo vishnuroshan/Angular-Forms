@@ -10,16 +10,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ValidationErrorsComponent } from './validation-errors/validation-errors.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { MultiSelectComponent } from './multi-select/multi-select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    
+    MultiSelectComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgMultiSelectDropDownModule.forRoot(),
     TextInputComponent,
     DropdownComponent,
     RadioGroupInputComponent,

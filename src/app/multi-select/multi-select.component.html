@@ -1,0 +1,14 @@
+<div class="multi-select">
+    <label>{{ label }}</label>
+    <ng-multiselect-dropdown
+      [placeholder]="'Select Options'"
+      [settings]="dropdownSettings"
+      [data]="options"
+      [(ngModel)]="selectedItems"
+      (onSelect)="onItemSelect($event)"
+      (onSelectAll)="onSelectAll($event)"
+      [formControl]="control"
+      (blur)="onTouched()">
+    </ng-multiselect-dropdown>
+  </div>
+  

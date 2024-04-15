@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-form',
@@ -18,6 +19,7 @@ export class FormComponent implements OnInit{
     dropdownOption: new FormControl<any>(null),
     radioOption: new FormControl<any>(null),
     checkboxOption: new FormControl<string[]>([]),
+    multiSelectOption: new FormControl<string[]>([]),
   })
 
   submitted: boolean = false
@@ -38,10 +40,34 @@ export class FormComponent implements OnInit{
     {label:'Angular Js', value:'angular'},
     {label:'React Js', value:'react'},
     {label:'vue Js', value:'vue'}
-  ]
+  ];
+  
+  multiSelectOptions = [
+    { item_id: 1, item_text: 'Chennai' },
+    { item_id: 2, item_text: 'Bangaluru' },
+    { item_id: 3, item_text: 'Pune' },
+    { item_id: 4, item_text: 'Mumbai' },
+    { item_id: 5, item_text: 'New Delhi' }
+  ];
+  
+  dropdownSettings: IDropdownSettings = {};
+  selectedItems: any[] = [];
 
   ngOnInit(): void {
     this.createForm();
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+    this.selectedItems = [
+      { item_id: 1, item_text: 'Chennai' },
+      { item_id: 4, item_text: 'Mumbai' }
+    ];
   }
 
   createForm(){
@@ -51,8 +77,9 @@ export class FormComponent implements OnInit{
       email: [{value: 'default@gmail.com', disabled: true },[Validators.required, Validators.email]],
       number: [{value: null, disabled: false },[Validators.required, Validators.min(1)]],
       dropdownOption: [{value: null, disabled: false }, [Validators.required]],
-      radioOption: [{value: null, disabled: false }, []],
-      checkboxOption: [{value: ["angular"], disabled: false }, [Validators.required]],
+      radioOption: [{value: null, disabled: false }, [Validators.required]],
+      checkboxOption: [{value: ["angular", "vue"], disabled: false }, [Validators.required]],
+      multiSelectOption: [{ value: null, disabled: true }, [Validators.required]]
     })
   }
 
