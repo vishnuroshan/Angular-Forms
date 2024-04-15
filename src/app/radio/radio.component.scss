@@ -32,5 +32,13 @@
   input[type="radio"] {
     accent-color: #00A64B;
   }
-
+  
+  input[type="radio"]:focus:checked {
+    box-shadow: 0 0 10px #00A64B;
+  }
+  
+  input[type="radio"]:checked + label:hover {
+    cursor: pointer;
+  }
+  
 }
