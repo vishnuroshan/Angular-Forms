@@ -1,0 +1,11 @@
+<div class="form-input-container">
+    <label [for]="label">{{label}}</label>
+    <div>
+        <textarea [id]="label"
+                [formControl]="control"
+                [placeholder]="placeholder"
+                [class.error]="control.invalid && control.touched">
+        </textarea>
+        <app-validation-errors [errors]="control?.errors" [invalid]="control?.invalid" [touched]="control?.touched" [label]="label"></app-validation-errors>
+    </div>
+</div>
