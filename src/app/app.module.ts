@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ValidationErrorsComponent } from './validation-errors/validation-errors.component';
+import { TextAreaComponent } from './text-area/text-area.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ValidationErrorsComponent } from './validation-errors/validation-errors
     DropdownComponent,
     RadioGroupInputComponent,
     CheckboxComponent,
+    TextAreaComponent,
     ValidationErrorsComponent,
     FormsModule,
     ReactiveFormsModule,
