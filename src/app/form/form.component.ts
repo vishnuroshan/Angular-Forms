@@ -42,9 +42,8 @@ export class FormComponent implements OnInit{
     {label:'vue Js', value:'vue'}
   ]
   
-  experience = `As a web developer,I have 2 years of experience crafting responsive and dynamic 
-                web applications. Proficient in HTML, CSS, JavaScript, and frameworks like React 
-                Angular and Rails`
+  experience = `As a web developer,I have 2 years of experience crafting responsive and dynamic web applications. 
+                Proficient in HTML, CSS, JavaScript, and frameworks like React Angular and Rails`
 
   ngOnInit(): void {
     this.createForm();
