@@ -19,6 +19,7 @@ export class FormComponent implements OnInit{
     dropdownOption: new FormControl<any>(null),
     radioOption: new FormControl<any>(null),
     checkboxOption: new FormControl<string[]>([]),
+    workExperience: new FormControl<string>(''),
   })
 
   submitted: boolean = false
@@ -40,6 +41,10 @@ export class FormComponent implements OnInit{
     {label:'React Js', value:'react'},
     {label:'vue Js', value:'vue'}
   ]
+  
+  experience = `As a web developer,I have 2 years of experience crafting responsive and dynamic 
+                web applications. Proficient in HTML, CSS, JavaScript, and frameworks like React 
+                Angular and Rails`
 
   ngOnInit(): void {
     this.createForm();
@@ -54,6 +59,7 @@ export class FormComponent implements OnInit{
       dropdownOption: [{value: null, disabled: false }, [Validators.required]],
       radioOption: [{value: null, disabled: false }, []],
       checkboxOption: [{value: ["angular"], disabled: false }, [Validators.required]],
+      workExperience: [{value: this.experience.replace(/[\r\n]+/g, ' '), disabled: false }, [Validators.required, Validators.minLength(50), Validators.maxLength(200)]],
     })
   }
 
