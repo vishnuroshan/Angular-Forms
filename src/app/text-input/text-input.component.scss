@@ -44,5 +44,34 @@
     border-color: red;
     outline: none;
   }
+
+  .input-with-icon {
+    position: relative;
+  }
+
+  input-with-icon input {
+    padding-left: 30px; 
+    padding-right: 30px;
+  }
+   
+  .icon-prefix,
+  .icon-suffix {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding-bottom: 5px;
+  }
+
+  .icon-prefix {
+      left: 5px;
+  }
+
+  .icon-suffix {
+      right: 5px;
+  }
+
+  .prefix-input {
+    padding-left: 30px;
+  }
 }
 

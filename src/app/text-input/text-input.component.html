@@ -3,12 +3,17 @@
         {{label}}
         <span *ngIf="isRequired" class="required-marker">*</span>
     </label>
-    <input [type]="type"
-           [id]="label"
-           [formControl]="control"
-           [placeholder]="placeholder"
-           [class.error]="control.invalid && control.touched"
-    />
-    
+
+    <div class="input-with-icon">
+        <input [type]="type"
+               [id]="label"
+               [formControl]="control"
+               [placeholder]="placeholder"
+               [class.error]="control.invalid && control.touched"
+               [class.prefix-input]="isPrefix"
+        />
+        <span *ngIf="isPrefix" class="icon-prefix" [innerHtml]="icons" title="This is a tooltip"></span>
+        <span *ngIf="!isPrefix" class="icon-suffix" [innerHtml]="icons" title="Tooltip message"></span>
+    </div>
     <app-validation-errors [errors]="control?.errors" [invalid]="control?.invalid" [touched]="control?.touched" [label]="label"></app-validation-errors>
 </div>

@@ -4,6 +4,9 @@ import { ControlValueAccessor, FormControl, FormsModule, NG_VALUE_ACCESSOR } fro
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormControlHelper } from '../helpers/form-control-helper';
 import { ValidationErrorsComponent } from '../validation-errors/validation-errors.component';
+import { ICONS } from '../icons/icons';
+import { IconService, IconType } from '../services/icons/icon.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-text-input',
@@ -16,7 +19,8 @@ import { ValidationErrorsComponent } from '../validation-errors/validation-error
       provide: NG_VALUE_ACCESSOR,
       useExisting: TextInputComponent,
       multi: true
-    }
+    },
+    IconService
   ]
 })
 export class TextInputComponent implements ControlValueAccessor,OnInit{
@@ -25,6 +29,9 @@ export class TextInputComponent implements ControlValueAccessor,OnInit{
   @Input() type: string = 'text';
   @Input() placeholder: string = '';
   @Input() allowOnlyText: boolean = false;
+  @Input() iconName!: IconType;
+  @Input() isPrefix: boolean = false;
+  isIconsDefined: boolean = false;
   input!: string;
 
   onChange: any = () => { };
@@ -40,7 +47,7 @@ export class TextInputComponent implements ControlValueAccessor,OnInit{
     }
   }
 
-  constructor(private injector: Injector) {}
+  constructor(private injector: Injector, private iconService: IconService, private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
     this.control = FormControlHelper.setFormControl(this.injector);
@@ -54,6 +61,18 @@ export class TextInputComponent implements ControlValueAccessor,OnInit{
   }
   registerOnTouched(fn: any){
     this.onTouched = fn;
+  }
+  
+  protected get icons(): SafeHtml {
+    if(this.iconName === 'successinfo' && !(this.control?.valid)){
+      this.iconName = 'errorinfo';
+    }
+    const svgContent = this.iconService.getSvgForName(this.iconName);
+    if (svgContent) {
+      return this.sanitizer.bypassSecurityTrustHtml(svgContent);
+    } else {
+      return '';
+    }
   }
 
   get dirty(): boolean {
