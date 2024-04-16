@@ -1,10 +1,10 @@
 <div class="wrapper">
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-        <app-text-input type="text" [allowOnlyText]="true" label="Username" formControlName="userName"  placeholder="Enter your username"></app-text-input>
+        <app-text-input iconName="successinfo" [isPrefix]="false" [allowOnlyText]="true" label="Username" formControlName="userName"  placeholder="Enter your username"></app-text-input>
 
         <app-text-input type="password" [allowOnlyText]="true" label="Password"  formControlName="password" placeholder=""></app-text-input>
 
-        <app-text-input type="email" label="Email" formControlName="email" placeholder="johndoe@example.com"></app-text-input>
+        <app-text-input iconName="email" [isPrefix]="true" type="email" label="Email" formControlName="email" placeholder="johndoe@example.com"></app-text-input>
 
         <app-text-input type="number" label="Expected CTC"  formControlName="number" placeholder="Enter your lpa"></app-text-input>
 
