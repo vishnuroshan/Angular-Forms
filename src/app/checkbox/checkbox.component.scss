@@ -2,13 +2,11 @@
   margin-bottom: 10px;
 
   label {
-    align-items: center;
-    margin-bottom: 5px;
-    color: #040404;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: Staff;
-    line-height: 22px;
+    color: #28293d;
+    font-size: var(--ags-font-sz16);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
     position: relative;
   }
 
@@ -26,26 +24,32 @@
   }
 
   input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     margin-right: 10px;
-    display: inline-block;
   }
 
   input[type="checkbox"]::before {
-      content: '';
-      display: inline-block;
-      width: 14px;
-      height: 15px;
-      border: 1.7px solid #B0C0CF;
-      border-radius: 2px;
-      background-color: white;
-      vertical-align: middle;
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 15px;
+    border: 1px solid #B0C0CF;
+    border-radius: 2px;
+    background-color: white;
+    vertical-align: middle;
+    font-size: 12px;
   }
 
   input[type="checkbox"]:checked::before {
-      content: '✔';
-      text-align: center;
-      line-height: 16px;
-      color: #00A64B;
-      background-color: white;
+    content: '✔';
+    text-align: center;
+    line-height: 16px;
+    color: #00A64B;
+    background-color: white;
+    border-color: #00c072;
   }
+
+
 }

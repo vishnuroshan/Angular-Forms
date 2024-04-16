@@ -3,12 +3,11 @@
   flex-direction: column;
 
   label {
-    align-items: center;
-    color: #040404;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: Staff;
-    line-height: 22px;
+    color: #28293d;
+    font-size: var(--ags-font-sz16);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
     position: relative;
   }
 
@@ -32,13 +31,13 @@
   input[type="radio"] {
     accent-color: #00A64B;
   }
-  
+
   input[type="radio"]:focus:checked {
     box-shadow: 0 0 10px #00A64B;
   }
-  
+
   input[type="radio"]:checked + label:hover {
     cursor: pointer;
   }
-  
+
 }
