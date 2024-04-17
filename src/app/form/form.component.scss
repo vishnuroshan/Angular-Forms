@@ -1,31 +1,42 @@
-.wrapper {
-  max-width: 400px;
+.personal-information {
   margin: 0 auto;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 3px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 
-  form {
-    margin-bottom: 20px;
+    .form-title {
+      color: #415395;
+      font-size: 18px;
+      font-style: normal;
+      line-height: 24px;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
 
-    button {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
+    form {
+      margin-bottom: 20px;
 
-      &:hover {
-        background-color: #004691;
-      }
+      button {
+        padding: 10px 20px;
+        background-color: var(--ags-secondary-color);
+        box-shadow: none!important;
+        border: 1px solid #2B3874 !important;
+        border-radius: 64px;
+        color: #f0f1f5 !important;
+        cursor: pointer;
 
-      &:disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
+        &:hover {
+          background-color: #004691;
+        }
+
+        &:disabled {
+          cursor: pointer;
+          background-color: #c4cadf !important;
+          color: #f0f1f5 !important;
+          border: 1px solid #C4CADF !important;
+        }
       }
     }
-  }
 
 }

@@ -1,16 +1,33 @@
-<div class="wrapper">
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-        <app-text-input iconName="successinfo" [isPrefix]="false" [allowOnlyText]="true" label="Username" formControlName="userName"  placeholder="Enter your username"></app-text-input>
+<div class="personal-information">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-control">
+        <div class="form-title">Personel Information</div>
 
-        <app-text-input type="password" [allowOnlyText]="true" label="Password"  formControlName="password" placeholder=""></app-text-input>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <app-text-input type="text" [allowOnlyText]="true" label="Username" formControlName="userName" placeholder="Enter your username"></app-text-input>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <app-text-input type="password" [allowOnlyText]="true" label="Password" formControlName="password" placeholder=""></app-text-input>
+            </div>
+        </div>
 
-        <app-text-input iconName="email" [isPrefix]="true" type="email" label="Email" formControlName="email" placeholder="johndoe@example.com"></app-text-input>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <app-text-input type="email" label="Email" formControlName="email" placeholder="johndoe@example.com"></app-text-input>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <app-text-input type="number" label="Expected CTC" formControlName="number" placeholder="Enter your lpa"></app-text-input>
+            </div>
+        </div>
 
-        <app-text-input type="number" label="Expected CTC"  formControlName="number" placeholder="Enter your lpa"></app-text-input>
-
-        <app-dropdown label="Experience" [options]="dropdownOptions" formControlName="dropdownOption" placeholder="Select years of experience"></app-dropdown>
-
-        <app-radio label="Gender" [options]="radioOptions" formControlName="radioOption"></app-radio>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <app-dropdown label="Experience" [options]="dropdownOptions" formControlName="dropdownOption" placeholder="Select years of experience"></app-dropdown>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <app-radio label="Gender" [options]="radioOptions" formControlName="radioOption"></app-radio>
+            </div>
+        </div>
 
         <app-checkbox label="Tech-Stack" [options]="checkBoxOptions" formControlName="checkboxOption"></app-checkbox>
 
@@ -19,8 +36,10 @@
         <app-mobile-number label="Mobile Number" formControlName="mobileNumber"></app-mobile-number>
 
 
-        <div>
-            <button [disabled]="!form.valid">Submit</button>
+        <div class="row">
+            <div class="col-12 text-end">
+                <button [disabled]="!form.valid">Submit</button>
+            </div>
         </div>
     </form>
 </div>
