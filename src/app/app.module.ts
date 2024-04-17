@@ -11,6 +11,8 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ValidationErrorsComponent } from './validation-errors/validation-errors.component';
 import { TextAreaComponent } from './text-area/text-area.component';
+import { MobileNumberComponent } from './mobile-number/mobile-number.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,12 @@ import { TextAreaComponent } from './text-area/text-area.component';
     RadioGroupInputComponent,
     CheckboxComponent,
     TextAreaComponent,
+    MobileNumberComponent,
     ValidationErrorsComponent,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
