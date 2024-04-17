@@ -1,21 +1,11 @@
-<div class="phone-container">
-    <div class="form-group">
-        <label for="label">{{label}}</label>
-            <div class="row">
-                <div class="col-sm-2">
-                    <mat-select [(ngModel)]="selectedCountryCode" (selectionChange)="updateValue()" [formControl]="control" panelClass="country-code-select-panel">
-                        <mat-select-trigger>
-                            <mat-icon class="country-flag" [innerHTML]="getIcon(selectedCountryCode)"></mat-icon>  {{ selectedCountryCode }}
-                        </mat-select-trigger>
-                        <mat-option *ngFor="let option of countryCodeOptions" [value]="option.value">
-                            <mat-icon class="country-flag" [innerHTML]="option.icon"></mat-icon>  {{ option.label }}
-                        </mat-option>
-                    </mat-select>
-                </div>
-                <div class="col-sm-10">
-                <input type="text" id="mobileNumber" [(ngModel)]="mobileNumber" (blur)="onTouched()" (input)="updateValue()" [formControl]="control" class="mobile-number-input">
-                </div>
-            </div>
-    </div>
+<div class="form-group"> <label for="label">Mobile Number</label>
+  <div>
+    <select id="countryCode" [(ngModel)]="selectedCountryCode" (change)="updateValue()">
+      <option *ngFor="let option of countryCodeOptions" [value]="option.value">
+        {{option.code}} {{ option.label }}</option>
+    </select>
+    <input type="text" id="mobileNumber" [(ngModel)]="mobileNumber" (blur)="onTouched()" (input)="updateValue()">
+  </div>
 </div>
+
 
