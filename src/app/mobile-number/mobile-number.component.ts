@@ -1,4 +1,4 @@
-import { Component, forwardRef, Injector, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, HostListener, Injector, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormControlHelper } from '../helpers/form-control-helper';
 import { ValidationErrorsComponent } from '../validation-errors/validation-errors.component';
@@ -26,19 +26,30 @@ import { IconService } from '../services/icons/icon.service';
 export class MobileNumberComponent implements ControlValueAccessor, OnInit {
   control: FormControl | any;
   @Input() label:string = '';
+  @Input() type:string = '';
   countryCodeOptions: { label: string, value: string, icon: any }[] = [
     { label: 'India (भारत) +91', value: '+91', icon: this.icons('indianflag') },
     { label: 'Mexico (México) +52', value: '+52', icon: this.icons('mexicanflag') },
     { label: 'Philippines +63', value: '+63', icon: this.icons('philippinesflag') },
     { label: 'United States +1', value: '+1', icon: this.icons('americanflag') },
   ];
-
   selectedCountryCode: string = '+91';
   mobileNumber: string = '';
   input!: any;
 
   onChange: any = () => {};
   onTouched: any = () => {};
+  
+
+  @HostListener('keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    if (this.type === 'text') {
+      const allowedCharacters = /^[0-9\b\t\r]+$/;
+      if (!allowedCharacters.test(event.key)) {
+        event.preventDefault();
+      }
+    }
+  }
 
   constructor(private injector: Injector,private iconService: IconService, private sanitizer: DomSanitizer) { }
 
@@ -66,7 +77,6 @@ export class MobileNumberComponent implements ControlValueAccessor, OnInit {
   }
 
   protected icons(iconName: any): SafeHtml {
-    
     const svgContent = this.iconService.getSvgForName(iconName);
     if (svgContent) {
       return this.sanitizer.bypassSecurityTrustHtml(svgContent);
@@ -75,6 +85,11 @@ export class MobileNumberComponent implements ControlValueAccessor, OnInit {
     }
   }
 
+  getIcon(countryCode: string): any {
+    const selectedOption = this.countryCodeOptions.find(option => option.value === countryCode);
+    return selectedOption ? selectedOption.icon : null;
+  }
+  
   updateValue(): void {
     this.onChange({ countrycode: this.selectedCountryCode, mobile: this.mobileNumber });
     this.onTouched();
