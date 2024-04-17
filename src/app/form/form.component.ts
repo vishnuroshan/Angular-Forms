@@ -28,7 +28,11 @@ export class FormComponent implements OnInit{
   dropdownOptions = [
     {label:'2 Years+', value:'two'},
     {label:'5 Years+', value:'five'},
-    {label:'10 Years+', value:'ten'}
+    {label:'10 Years+', value:'ten'},
+    {label:'10 Years+', value:'ten'},
+    {label:'10 Years+', value:'ten'},
+    {label:'10 Years+', value:'ten'},
+
   ]
 
   radioOptions = [

@@ -4,11 +4,11 @@
   margin-bottom: 15px;
 
   label {
-    color: #040404;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: Staff;
-    line-height: 22px;
+    color: #28293d;
+    font-size: 16;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
     position: relative;
   }
 
@@ -27,22 +27,19 @@
 
   select {
     padding: 8px;
-    border: 1px solid #B0C0CF;
-    border-radius: 3px;
     font-size: 16px;
     cursor: pointer;
-     &:hover {
-      background-color: #f0f0f0; // Set hover background color
-    }
-    option {
-      background-color: white; // Set background to white
-      &:not([disabled]):hover {
-        background-color: yellow; // Set hover background color for non-disabled options
-      }
-      &:disabled {
-        color: #888; // Set color to grey for disabled options
-      }
-    }
+    position: relative;
+  }
+
+  select option {
+    display: flex;
+    min-height: 28px;
+    background-color: white;
+  }
+
+  select option:not([disabled]):hover {
+    background-color: rgb(189, 189, 189);
   }
   select[size="1"] {
     position: absolute;
