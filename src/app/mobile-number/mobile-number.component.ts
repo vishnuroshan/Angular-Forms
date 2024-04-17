@@ -42,25 +42,25 @@ export class MobileNumberComponent implements ControlValueAccessor, OnInit {
     code: string;
   }[] = [
     {
-      label: 'India (भारत) +91',
+      label: 'India',
       code: this.getFlagEmoji('IN'),
       value: '+91',
       icon: this.icons('indianflag'),
     },
     {
-      label: 'Mexico (México) +52',
+      label: 'Mexico',
       value: '+52',
       code: this.getFlagEmoji('MX'),
       icon: this.icons('mexicanflag'),
     },
     {
-      label: 'Philippines +63',
+      label: 'Philippines',
       code: this.getFlagEmoji('PH'),
       value: '+63',
       icon: this.icons('philippinesflag'),
     },
     {
-      label: 'United States +1',
+      label: 'USA',
       code: this.getFlagEmoji('US'),
       value: '+1',
       icon: this.icons('americanflag'),
@@ -134,7 +134,7 @@ export class MobileNumberComponent implements ControlValueAccessor, OnInit {
     const selectedOption = this.countryCodeOptions.find(
       (option) => option.value === countryCode
     );
-    return selectedOption ? selectedOption.icon : null;
+    return selectedOption ? selectedOption.code : null;
   }
 
   updateValue(): void {
