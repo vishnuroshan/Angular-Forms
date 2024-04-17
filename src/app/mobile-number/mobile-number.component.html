@@ -1,13 +1,11 @@
 <div class="form-group">
     <label for="label">{{label}}</label>
     <div class="input-container">
-        <!-- <div class="country-selector"> -->
-            <mat-select [(ngModel)]="selectedCountryCode" (selectionChange)="updateValue()" [formControl]="control" panelClass="country-code-select-panel">
-                <mat-option *ngFor="let option of countryCodeOptions" [value]="option.value">
-                {{ option.label }}
-                </mat-option>
-            </mat-select>
-        <!-- </div> -->
+        <mat-select [(ngModel)]="selectedCountryCode" (selectionChange)="updateValue()" [formControl]="control" panelClass="country-code-select-panel">
+            <mat-option *ngFor="let option of countryCodeOptions" [value]="option.value">
+                <mat-icon class="country-flag" [innerHTML]="option.icon"></mat-icon>{{ option.label }}
+            </mat-option>
+        </mat-select>
         <div class="phone-number">
             <input type="text" id="mobileNumber" [(ngModel)]="mobileNumber" (blur)="onTouched()" (input)="updateValue()" [formControl]="control" class="mobile-number-input">
         </div>

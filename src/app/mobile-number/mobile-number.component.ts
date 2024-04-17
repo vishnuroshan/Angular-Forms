@@ -4,12 +4,15 @@ import { FormControlHelper } from '../helpers/form-control-helper';
 import { ValidationErrorsComponent } from '../validation-errors/validation-errors.component';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
-
+import { ICONS } from '../icons/icons';
+import { MatIconModule } from '@angular/material/icon';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { IconService } from '../services/icons/icon.service';
 
 @Component({
   selector: 'app-mobile-number',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,FormsModule,ValidationErrorsComponent,MatSelectModule],
+  imports: [CommonModule,ReactiveFormsModule,FormsModule,ValidationErrorsComponent,MatSelectModule,MatIconModule],
   templateUrl: './mobile-number.component.html',
   styleUrls: ['./mobile-number.component.scss'],
   providers: [
@@ -23,11 +26,11 @@ import { MatSelectModule } from '@angular/material/select';
 export class MobileNumberComponent implements ControlValueAccessor, OnInit {
   control: FormControl | any;
   @Input() label:string = '';
-  countryCodeOptions: { label: string, value: string }[] = [
-    { label: 'India (भारत) +91', value: '+91' },
-    { label: 'Mexico (México) +52', value: '+52' },
-    { label: 'Philippines +63', value: '+63' },
-    { label: 'United States +1', value: '+1' },
+  countryCodeOptions: { label: string, value: string, icon: any }[] = [
+    { label: 'India (भारत) +91', value: '+91', icon: this.icons('indianflag') },
+    { label: 'Mexico (México) +52', value: '+52', icon: this.icons('mexicanflag') },
+    { label: 'Philippines +63', value: '+63', icon: this.icons('philippinesflag') },
+    { label: 'United States +1', value: '+1', icon: this.icons('americanflag') },
   ];
 
   selectedCountryCode: string = '+91';
@@ -37,7 +40,7 @@ export class MobileNumberComponent implements ControlValueAccessor, OnInit {
   onChange: any = () => {};
   onTouched: any = () => {};
 
-  constructor(private injector: Injector) { }
+  constructor(private injector: Injector,private iconService: IconService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.control = FormControlHelper.setFormControl(this.injector);
@@ -60,6 +63,16 @@ export class MobileNumberComponent implements ControlValueAccessor, OnInit {
 
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
+  }
+
+  protected icons(iconName: any): SafeHtml {
+    
+    const svgContent = this.iconService.getSvgForName(iconName);
+    if (svgContent) {
+      return this.sanitizer.bypassSecurityTrustHtml(svgContent);
+    } else {
+      return '';
+    }
   }
 
   updateValue(): void {
