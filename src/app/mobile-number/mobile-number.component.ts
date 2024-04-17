@@ -24,10 +24,10 @@ export class MobileNumberComponent implements ControlValueAccessor, OnInit {
   control: FormControl | any;
   @Input() label:string = '';
   countryCodeOptions: { label: string, value: string }[] = [
-    { label: 'US (+1)', value: '+1' },
-    { label: 'Mexico (+52)', value: '+52' },
-    { label: 'Philippines (+63)', value: '+63' },
-    { label: 'India (+91)', value: '+91' }
+    { label: 'India (भारत) +91', value: '+91' },
+    { label: 'Mexico (México) +52', value: '+52' },
+    { label: 'Philippines +63', value: '+63' },
+    { label: 'United States +1', value: '+1' },
   ];
 
   selectedCountryCode: string = '+91';
